@@ -7,7 +7,8 @@
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.2"
+      "tool_version": "2023.2",
+      "validated": "true"
     },
     "design_tree": {
       "encoder_0": "",
@@ -17,7 +18,33 @@
     "ports": {
       "sysclk": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "reset",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_1_sysclk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "btn1": {
         "direction": "I"
@@ -32,7 +59,17 @@
       },
       "reset": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -59,6 +96,10 @@
               "ASSOCIATED_RESET": {
                 "value": "reset",
                 "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_sysclk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -89,7 +130,13 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_sysclk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "btn_in": {
             "direction": "I"
@@ -113,7 +160,13 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_sysclk",
+                "value_src": "default_prop"
+              }
+            }
           },
           "btn_in": {
             "direction": "I"
@@ -125,18 +178,16 @@
       }
     },
     "nets": {
-      "A_0_1": {
+      "btn1_1": {
         "ports": [
           "btn1",
-          "debouncer_0/btn_in",
-          "encoder_0/A"
+          "debouncer_0/btn_in"
         ]
       },
-      "B_0_1": {
+      "btn2_1": {
         "ports": [
           "btn2",
-          "debouncer_1/btn_in",
-          "encoder_0/B"
+          "debouncer_1/btn_in"
         ]
       },
       "clk_0_1": {
@@ -145,6 +196,18 @@
           "debouncer_0/clk",
           "debouncer_1/clk",
           "encoder_0/clk"
+        ]
+      },
+      "debouncer_0_btn_out": {
+        "ports": [
+          "debouncer_0/btn_out",
+          "encoder_0/A"
+        ]
+      },
+      "debouncer_1_btn_out": {
+        "ports": [
+          "debouncer_1/btn_out",
+          "encoder_0/B"
         ]
       },
       "encoder_0_EncOut": {
