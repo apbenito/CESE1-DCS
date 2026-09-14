@@ -1,0 +1,26 @@
+# ---- Vivado generated output (all regenerable, never commit) ----
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.xpr
+.Xil/
+*.jou
+*.log
+*.str
+*.wdb
+*.pb
+*.bit
+*.ltx
+*.dcp
+
+# ---- iverilog / gtkwave artifacts ----
+build/
+*.vvp
+*.vcd
+
+# ---- OS noise ----
+.DS_Store
+Thumbs.db

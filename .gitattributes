@@ -1,0 +1,16 @@
+# Normalise line endings across macOS / Windows / lab PCs.
+# Without this, every cross-machine edit shows as a whole-file diff.
+* text=auto eol=lf
+
+*.v    text eol=lf
+*.sv   text eol=lf
+*.xdc  text eol=lf
+*.tcl  text eol=lf
+*.bd   text eol=lf
+*.md   text eol=lf
+Makefile text eol=lf
+
+# Vivado binaries, should they ever be force-added
+*.dcp  binary
+*.bit  binary
+*.wdb  binary
