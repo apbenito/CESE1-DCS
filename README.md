@@ -8,6 +8,7 @@ Digital Computing Systems (CESE4130) — TU Delft, EEMCS/QCE, 2026/27.
       Async_Encoder_Decoder_template/   Part 1 — async encoder/decoder
       Debouncer/                        Part 2 — debouncing + counters
       Road_Sign_template/               Part 3 — FSM road sign
+      LFSR/                             Bonus — 6-bit LFSR (no Vivado project yet)
       PYNQ-Z1_Constraints.xdc           blank board constraints (for the bonus)
       Makefile                          iverilog simulation targets
 
@@ -24,8 +25,11 @@ generates (`.runs`, `.cache`, `.gen`, `.sim`, `.xpr`) is gitignored.
 Behavioural simulation runs natively on macOS with Icarus Verilog — no Vivado,
 no VM. From `lab1/`:
 
-    make p1        # compile + run Part 1 testbench
-    make p1 WAVE=1 # ...and open the waveform in gtkwave
+    make p1          # Part 1 — async encoder / cardinal decoder
+    make p2          # Part 2 — debounced up/down counter, gray encoded
+    make p3          # Part 3 — road sign FSM
+    make bonus       # Bonus — 6-bit LFSR, all three seeds
+    make p3 WAVE=1   # ...and open the waveform in gtkwave
     make clean
 
 Requires `brew install icarus-verilog gtkwave`.

@@ -14,7 +14,10 @@ P3_SRCS := Road_Sign_template/Road_Sign_template.srcs
 P3_DUT  := $(P3_SRCS)/sources_1/new/road_sign.v
 P3_TB   := $(P3_SRCS)/sim_1/new/tb_road_sign.v
 
-.PHONY: p1 p2 p3 clean
+BN_DUT  := LFSR/lfsr.v
+BN_TB   := LFSR/tb_lfsr.v
+
+.PHONY: p1 p2 p3 bonus clean
 
 p1: $(BUILD)/p1.vvp
 	@cd $(BUILD) && vvp p1.vvp
@@ -31,6 +34,14 @@ p3: $(BUILD)/p3.vvp
 $(BUILD)/p3.vvp: $(P3_DUT) $(P3_TB)
 	@mkdir -p $(BUILD)
 	$(IV) -o $@ $(P3_DUT) $(P3_TB)
+
+bonus: $(BUILD)/bonus.vvp
+	@cd $(BUILD) && vvp bonus.vvp
+	@if [ "$(WAVE)" = "1" ]; then gtkwave $(BUILD)/lfsr.vcd >/dev/null 2>&1 & fi
+
+$(BUILD)/bonus.vvp: $(BN_DUT) $(BN_TB)
+	@mkdir -p $(BUILD)
+	$(IV) -o $@ $(BN_DUT) $(BN_TB)
 
 $(BUILD)/p1.vvp: $(P1_DUT) $(P1_TB)
 	@mkdir -p $(BUILD)
