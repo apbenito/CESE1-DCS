@@ -1,22 +1,9 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: TU Delft
-// Engineer: Himanshu
-// 
-// Create Date: 29.08.2024 14:01:34
-// Design Name: 
 // Module Name: encoder
-// Project Name: Gray_Encoder
 // Target Devices: PYNQ Z1
-// Tool Versions: 2023.2
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Part 2 Step 1: 4-bit up/down counter, A counts up and B counts down
 //////////////////////////////////////////////////////////////////////////////////
 
 module encoder (
@@ -27,6 +14,26 @@ module encoder (
     output reg [3:0] EncOut  // 4-bit Gray code output
     );
 
-    // Add your code here
+    // previous button states, used to count once per press instead of
+    // once per clock cycle while the button is held
+    reg A_prev = 0;
+    reg B_prev = 0;
+
+    always @(posedge clk) begin
+        if (reset) begin
+            EncOut <= 4'b0000;
+            A_prev <= 1'b0;
+            B_prev <= 1'b0;
+        end
+        else begin
+            A_prev <= A;
+            B_prev <= B;
+
+            if (A && !A_prev)
+                EncOut <= EncOut + 1'b1;
+            else if (B && !B_prev)
+                EncOut <= EncOut - 1'b1;
+        end
+    end
 
 endmodule
