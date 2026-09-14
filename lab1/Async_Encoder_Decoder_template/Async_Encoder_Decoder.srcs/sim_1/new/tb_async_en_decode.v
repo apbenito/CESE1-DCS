@@ -24,7 +24,7 @@ module tb_async_en_decode;
         reset       = 1'b1;
         prog_select = 1'b1;
         bin_rot     = 3'b111;
-        gray_rot    = 4'b0001;
+        gray_rot    = 4'b1001;
         #10;
 
         // ---- Step 1: binary display (prog_select = 1) ----
@@ -41,14 +41,14 @@ module tb_async_en_decode;
 
         // ---- Step 2: cardinal decoder (prog_select = 0) ----
         prog_select = 1'b0;
-        gray_rot = 4'b0001;  #10;   // N
-        gray_rot = 4'b0011;  #10;   // NE
-        gray_rot = 4'b0111;  #10;   // E
-        gray_rot = 4'b1111;  #10;   // SE
-        gray_rot = 4'b1110;  #10;   // S
-        gray_rot = 4'b1100;  #10;   // SW
-        gray_rot = 4'b1000;  #10;   // W
-        gray_rot = 4'b0000;  #10;   // NW
+        gray_rot = 4'b1001;  #10;   // N
+        gray_rot = 4'b1011;  #10;   // NE
+        gray_rot = 4'b0011;  #10;   // E
+        gray_rot = 4'b0111;  #10;   // SE
+        gray_rot = 4'b0110;  #10;   // S
+        gray_rot = 4'b1110;  #10;   // SW
+        gray_rot = 4'b1111;  #10;   // W
+        gray_rot = 4'b1101;  #10;   // NW
 
         // reset should override the decoder too
         reset = 1'b1;  #10;

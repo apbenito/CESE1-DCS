@@ -22,14 +22,14 @@ module async_en_decode(
             else begin
                 // gray codes from the datasheet, inverted for the pull-ups
                 case (gray_rot)
-                    4'b0001: led = 4'b0001;  // N
-                    4'b0011: led = 4'b0011;  // NE
-                    4'b0111: led = 4'b0010;  // E
-                    4'b1111: led = 4'b0110;  // SE
-                    4'b1110: led = 4'b0100;  // S
-                    4'b1100: led = 4'b1100;  // SW
-                    4'b1000: led = 4'b1000;  // W
-                    4'b0000: led = 4'b1001;  // NW
+                    4'b1001: led = 4'b0001;  // MODE1  N
+                    4'b1011: led = 4'b0011;  // MODE2  NE
+                    4'b0011: led = 4'b0010;  // MODE3  E
+                    4'b0111: led = 4'b0110;  // MODE4  SE
+                    4'b0110: led = 4'b0100;  // MODE5  S
+                    4'b1110: led = 4'b1100;  // MODE6  SW
+                    4'b1111: led = 4'b1000;  // MODE7  W
+                    4'b1101: led = 4'b1001;  // MODE8  NW
                     default: led = 4'b0000;
                 endcase
             end
