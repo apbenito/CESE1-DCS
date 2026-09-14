@@ -8,6 +8,8 @@ module tb_encoder;
     reg        B;
     wire [3:0] EncOut;
 
+    integer i;
+
     encoder uut (
         .reset(reset),
         .clk(clk),
@@ -45,19 +47,27 @@ module tb_encoder;
         reset = 1;  #40;
         reset = 0;  #16;
 
-        press_A;  press_A;  press_A;   // count up to 3
-        press_B;                       // back down to 2
-        press_B;  press_B;             // down to 0
-        press_B;                       // underflow to 15
-        press_A;                       // overflow back to 0
+        $display("");
+        $display(" count | gray");
+        $display("-------+------");
+        $display("   %2d  | %b", uut.count, EncOut);
 
-        reset = 1;  #40;               // reset clears the count
+        // walk the whole range so the gray sequence is visible
+        for (i = 0; i < 15; i = i + 1) begin
+            press_A;
+            $display("   %2d  | %b", uut.count, EncOut);
+        end
+
+        // and back down a few
+        $display("");
+        press_B;
+        $display("   %2d  | %b   (after one B press)", uut.count, EncOut);
+
+        reset = 1;  #40;
+        $display("   %2d  | %b   (after reset)", uut.count, EncOut);
+        $display("");
 
         $finish;
     end
-
-    initial
-        $monitor("t=%4d  reset=%b  A=%b  B=%b  EncOut=%b (%2d)",
-                 $time, reset, A, B, EncOut, EncOut);
 
 endmodule
