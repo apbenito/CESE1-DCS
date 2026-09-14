@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "sessions": [
+    {
+      "id": "dmav5kyqmu1gx894",
+      "name": "Session 1",
+      "createdAt": 1789403970568,
+      "threads": [],
+      "overall": ""
+    }
+  ],
+  "activeSessionId": "dmav5kyqmu1gx894"
+}

@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "sim: part 1",
+      "type": "shell",
+      "command": "make p1",
+      "options": { "cwd": "${workspaceFolder}/lab1" },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": {
+        "owner": "verilog",
+        "fileLocation": ["relative", "${workspaceFolder}/lab1"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):\\s+(error|warning|syntax error)[:\\s]*(.*)$",
+          "file": 1, "line": 2, "severity": 3, "message": 4
+        }
+      }
+    },
+    {
+      "label": "sim: part 1 + waveform",
+      "type": "shell",
+      "command": "make p1 WAVE=1",
+      "options": { "cwd": "${workspaceFolder}/lab1" },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "sim: clean",
+      "type": "shell",
+      "command": "make clean",
+      "options": { "cwd": "${workspaceFolder}/lab1" },
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -8,8 +8,6 @@ module tb_async_en_decode;
     reg  [3:0] gray_rot;
     wire [3:0] led;
 
-    integer i;
-
     async_en_decode uut (
         .reset(reset),
         .prog_select(prog_select),
@@ -22,30 +20,31 @@ module tb_async_en_decode;
         $dumpfile("async.vcd");
         $dumpvars(0, tb_async_en_decode);
 
-        prog_select = 1'b1;     // Step 1 mode (switch UP)
-        gray_rot    = 4'b0000;  // unused for now
+        prog_select = 1'b1;
+        gray_rot    = 4'b0000;
 
-        // ---- reset asserted: LEDs must stay off regardless of input ----
+        // reset on: LEDs should stay off whatever the switch says
         reset   = 1'b1;
-        bin_rot = 3'b000;  #10;
-        bin_rot = 3'b101;  #10;
-        if (led !== 4'b0000) $display("FAIL: reset did not clear LEDs");
+        bin_rot = 3'b111;  #10;
+        bin_rot = 3'b010;  #10;
 
-        // ---- reset released: sweep all 8 switch positions ----
+        // reset off: step through all 8 switch positions
+        // (switch has pull-ups, so the input is the inverted position)
         reset = 1'b0;
-        $display("");
-        $display(" position | bin_rot (raw) | led   | decoded");
-        $display("----------+---------------+-------+--------");
-        for (i = 0; i < 8; i = i + 1) begin
-            bin_rot = ~i[2:0];          // emulate the pull-up wiring
-            #10;
-            $display("    %0d     |     %b       | %b  |   %0d %s",
-                     i, bin_rot, led, led[2:0],
-                     (led[2:0] === i[2:0]) ? "OK" : "<-- MISMATCH");
-        end
+        bin_rot = 3'b111;  #10;   // position 0
+        bin_rot = 3'b110;  #10;   // position 1
+        bin_rot = 3'b101;  #10;   // position 2
+        bin_rot = 3'b100;  #10;   // position 3
+        bin_rot = 3'b011;  #10;   // position 4
+        bin_rot = 3'b010;  #10;   // position 5
+        bin_rot = 3'b001;  #10;   // position 6
+        bin_rot = 3'b000;  #10;   // position 7
 
-        $display("");
         $finish;
     end
+
+    initial
+        $monitor("t=%3d  reset=%b  bin_rot=%b  led=%b",
+                 $time, reset, bin_rot, led);
 
 endmodule

@@ -13,17 +13,10 @@ module async_en_decode(
     );
 
     always @(*) begin
-        // Default assignment. Two jobs at once:
-        //   1. implements "reset on -> all LEDs off"
-        //   2. guarantees led is driven on every path, so no latch is inferred
-        led = 4'b0000;
+        led = 4'b0000;              // default: LEDs off (also avoids a latch)
 
         if (!reset) begin
-            // Rotary switch is wired with pull-ups: an open contact reads 1,
-            // a closed contact is pulled to GND and reads 0. The switch shorts
-            // the bits of the selected position to common, so the raw input is
-            // the bitwise complement of the position number.
-            led[2:0] = ~bin_rot;
+            led[2:0] = ~bin_rot;    // switch has pull-ups, so invert
         end
     end
 
