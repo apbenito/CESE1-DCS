@@ -9,10 +9,13 @@ module lfsr(
     input  wire        reset,
     output reg  [5:0]  value,        // current pseudo-random value
     output reg         repetition,   // high once the sequence returns to the seed
-    output reg  [31:0] distance      // number of shifts taken to get back
+    output reg  [6:0]  distance      // number of shifts taken to get back
     );
 
-    parameter SEED = 6'b000000;
+    parameter SEED1 = 6'b000000;
+    parameter SEED2 = 6'b011001;
+    parameter SEED3 = 6'b101001;
+    parameter SEED = SEED1;
 
     // the polynomial taps bits 6, 5 and 3, so the bit shifted in is their XOR
     wire       feedback = value[5] ^ value[4] ^ value[2];

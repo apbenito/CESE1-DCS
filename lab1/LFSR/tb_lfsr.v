@@ -7,7 +7,7 @@ module tb_lfsr;
 
     wire [5:0]  value_a, value_b, value_c;
     wire        rep_a,   rep_b,   rep_c;
-    wire [31:0] dist_a,  dist_b,  dist_c;
+    wire [6:0]  dist_a,  dist_b,  dist_c;
 
     integer i;
 

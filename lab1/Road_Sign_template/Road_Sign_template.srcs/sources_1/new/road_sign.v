@@ -24,8 +24,8 @@ module road_sign(
     localparam WARN  = 2'd3;
 
     reg [1:0]  mode;        // which sign mode we are in
-    reg [25:0] divider;     // counts clock cycles between animation steps
-    reg [2:0]  anim_step;   // position within the current animation
+    reg [25:0] divider;     // counts clock cycles between animation steps (26 bits fits up to 67e6)
+    reg [2:0]  anim_current;   // position within the current animation
     reg [2:0]  anim_last;   // last step of the current animation
 
     // left and right run over 6 states, warning over 3, idle stays put
@@ -43,26 +43,26 @@ module road_sign(
         if (reset) begin
             mode      <= IDLE;
             divider   <= 0;
-            anim_step <= 0;
+            anim_current <= 0;
         end
         else if (mode == IDLE && btn[0]) begin
-            mode <= LEFT;   divider <= 0;  anim_step <= 0;
+            mode <= LEFT;   divider <= 0;  anim_current <= 0;
         end
         else if (mode == IDLE && btn[1]) begin
-            mode <= RIGHT;  divider <= 0;  anim_step <= 0;
+            mode <= RIGHT;  divider <= 0;  anim_current <= 0;
         end
         else if (mode == IDLE && btn[2]) begin
-            mode <= WARN;   divider <= 0;  anim_step <= 0;
+            mode <= WARN;   divider <= 0;  anim_current <= 0;
         end
         else if (mode != IDLE && btn[3]) begin
-            mode <= IDLE;   divider <= 0;  anim_step <= 0;
+            mode <= IDLE;   divider <= 0;  anim_current <= 0;
         end
         else if (divider == DIV - 1) begin
             divider <= 0;
-            if (anim_step == anim_last)
-                anim_step <= 0;         // circular: wrap to the first state
+            if (anim_current == anim_last)
+                anim_current <= 0;         // circular: wrap to the first state
             else
-                anim_step <= anim_step + 1'b1;
+                anim_current <= anim_current + 1'b1;
         end
         else begin
             divider <= divider + 1'b1;
@@ -82,7 +82,7 @@ module road_sign(
 
             LEFT: begin
                 rgb_led = 3'b010;               // green
-                case (anim_step)
+                case (anim_current)
                     3'd0: led = 4'b0000;
                     3'd1: led = 4'b0001;
                     3'd2: led = 4'b0011;
@@ -95,7 +95,7 @@ module road_sign(
 
             RIGHT: begin
                 rgb_led = 3'b100;               // red
-                case (anim_step)
+                case (anim_current)
                     3'd0: led = 4'b0000;
                     3'd1: led = 4'b1000;
                     3'd2: led = 4'b1100;
@@ -108,7 +108,7 @@ module road_sign(
 
             WARN: begin
                 rgb_led = 3'b110;               // yellow
-                case (anim_step)
+                case (anim_current)
                     3'd0: led = 4'b0000;
                     3'd1: led = 4'b1100;
                     3'd2: led = 4'b0011;
