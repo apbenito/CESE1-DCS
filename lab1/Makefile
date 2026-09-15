@@ -21,15 +21,15 @@ BN_TB   := LFSR/tb_lfsr.v
 
 p1: $(BUILD)/p1.vvp
 	@cd $(BUILD) && vvp p1.vvp
-	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/async.vcd"; open "$(BUILD)/async.vcd" 2>/dev/null || echo "(open it from VS Code)"; fi
+	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/async.vcd"; command -v code >/dev/null 2>&1 && code "$(BUILD)/async.vcd" || true; fi
 
 p2: $(BUILD)/p2.vvp
 	@cd $(BUILD) && vvp p2.vvp
-	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/encoder.vcd"; open "$(BUILD)/encoder.vcd" 2>/dev/null || echo "(open it from VS Code)"; fi
+	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/encoder.vcd"; command -v code >/dev/null 2>&1 && code "$(BUILD)/encoder.vcd" || true; fi
 
 p3: $(BUILD)/p3.vvp
 	@cd $(BUILD) && vvp p3.vvp
-	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/road_sign.vcd"; open "$(BUILD)/road_sign.vcd" 2>/dev/null || echo "(open it from VS Code)"; fi
+	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/road_sign.vcd"; command -v code >/dev/null 2>&1 && code "$(BUILD)/road_sign.vcd" || true; fi
 
 $(BUILD)/p3.vvp: $(P3_DUT) $(P3_TB)
 	@mkdir -p $(BUILD)
@@ -37,7 +37,7 @@ $(BUILD)/p3.vvp: $(P3_DUT) $(P3_TB)
 
 bonus: $(BUILD)/bonus.vvp
 	@cd $(BUILD) && vvp bonus.vvp
-	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/lfsr.vcd"; open "$(BUILD)/lfsr.vcd" 2>/dev/null || echo "(open it from VS Code)"; fi
+	@if [ "$(WAVE)" = "1" ]; then echo ""; echo "waveform: $(BUILD)/lfsr.vcd"; command -v code >/dev/null 2>&1 && code "$(BUILD)/lfsr.vcd" || true; fi
 
 $(BUILD)/bonus.vvp: $(BN_DUT) $(BN_TB)
 	@mkdir -p $(BUILD)
