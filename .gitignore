@@ -1,11 +1,9 @@
-# ---- Vivado generated output (all regenerable, never commit) ----
+# ---- Vivado build output (regenerable, large) ----
 *.cache/
-*.gen/
 *.hw/
 *.ip_user_files/
 *.runs/
 *.sim/
-*.xpr
 .Xil/
 *.jou
 *.log
@@ -16,10 +14,18 @@
 *.ltx
 *.dcp
 
+# Tracked on purpose so a fresh clone opens in Vivado:
+#   *.xpr    the project file
+#   *.srcs/  sources, constraints, block diagrams
+#   *.gen/   generated block-design output products (incl. the HDL wrapper)
+
 # ---- iverilog / gtkwave artifacts ----
 build/
 *.vvp
 *.vcd
+
+# ---- local notes, not part of the assignment ----
+docs/
 
 # ---- OS noise ----
 .DS_Store
