@@ -37,7 +37,7 @@ module tb_road_sign;
         input integer steps;
         begin
             for (i = 0; i < steps; i = i + 1) begin
-                $display("      step %0d  led=%b  rgb=%b", uut.anim_step, led, rgb_led);
+                $display("      step %0d  led=%b  rgb=%b", uut.anim_current, led, rgb_led);
                 #80;                 // DIV=10 -> 10 clocks -> 80 ns per step
             end
         end
