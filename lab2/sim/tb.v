@@ -8,6 +8,9 @@
 //   +stopaddr=<hex>   stop once the program writes to this address
 //   +stoppc=<hex>     stop once execution reaches this address
 //
+// Build options: -DFAST_MEM for zero-wait memory (default is one cycle late),
+// -DSINGLE_PORT for a single-port register file.
+//
 // Every time an instruction starts, prints the address and the number of
 // cycles the previous instruction took ("CPI ...") for cpi.py to summarise.
 
@@ -27,6 +30,9 @@ module tb;
     wire        trap;
 
     picorv32 #(
+`ifdef SINGLE_PORT
+        .ENABLE_REGS_DUALPORT(0),
+`endif
         .ENABLE_MUL(1),
         .ENABLE_DIV(1)
     ) uut (
