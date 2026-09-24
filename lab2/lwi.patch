@@ -1,0 +1,105 @@
+--- /private/tmp/claude-501/-Users-parellano-Git-CESE1-DCS/d35e1389-7856-4b6f-a51f-a5756d6e9429/scratchpad/picorv32_upstream.v	2026-09-24 15:58:03
++++ picorv32.v	2026-09-24 16:06:36
+@@ -646,6 +646,7 @@
+ 	reg instr_lui, instr_auipc, instr_jal, instr_jalr;
+ 	reg instr_beq, instr_bne, instr_blt, instr_bge, instr_bltu, instr_bgeu;
+ 	reg instr_lb, instr_lh, instr_lw, instr_lbu, instr_lhu, instr_sb, instr_sh, instr_sw;
++	reg instr_lwi;
+ 	reg instr_addi, instr_slti, instr_sltiu, instr_xori, instr_ori, instr_andi, instr_slli, instr_srli, instr_srai;
+ 	reg instr_add, instr_sub, instr_sll, instr_slt, instr_sltu, instr_xor, instr_srl, instr_sra, instr_or, instr_and;
+ 	reg instr_rdcycle, instr_rdcycleh, instr_rdinstr, instr_rdinstrh, instr_ecall_ebreak, instr_fence;
+@@ -663,6 +664,7 @@
+ 
+ 	reg is_lui_auipc_jal;
+ 	reg is_lb_lh_lw_lbu_lhu;
++	reg is_lwi;
+ 	reg is_slli_srli_srai;
+ 	reg is_jalr_addi_slti_sltiu_xori_ori_andi;
+ 	reg is_sb_sh_sw;
+@@ -678,7 +680,7 @@
+ 
+ 	assign instr_trap = (CATCH_ILLINSN || WITH_PCPI) && !{instr_lui, instr_auipc, instr_jal, instr_jalr,
+ 			instr_beq, instr_bne, instr_blt, instr_bge, instr_bltu, instr_bgeu,
+-			instr_lb, instr_lh, instr_lw, instr_lbu, instr_lhu, instr_sb, instr_sh, instr_sw,
++			instr_lb, instr_lh, instr_lw, instr_lbu, instr_lhu, instr_sb, instr_sh, instr_sw, instr_lwi,
+ 			instr_addi, instr_slti, instr_sltiu, instr_xori, instr_ori, instr_andi, instr_slli, instr_srli, instr_srai,
+ 			instr_add, instr_sub, instr_sll, instr_slt, instr_sltu, instr_xor, instr_srl, instr_sra, instr_or, instr_and,
+ 			instr_rdcycle, instr_rdcycleh, instr_rdinstr, instr_rdinstrh, instr_fence,
+@@ -716,6 +718,7 @@
+ 		if (instr_lb)       new_ascii_instr = "lb";
+ 		if (instr_lh)       new_ascii_instr = "lh";
+ 		if (instr_lw)       new_ascii_instr = "lw";
++		if (instr_lwi)      new_ascii_instr = "lwi";
+ 		if (instr_lbu)      new_ascii_instr = "lbu";
+ 		if (instr_lhu)      new_ascii_instr = "lhu";
+ 		if (instr_sb)       new_ascii_instr = "sb";
+@@ -873,6 +876,7 @@
+ 
+ 			is_beq_bne_blt_bge_bltu_bgeu <= mem_rdata_latched[6:0] == 7'b1100011;
+ 			is_lb_lh_lw_lbu_lhu          <= mem_rdata_latched[6:0] == 7'b0000011;
++			is_lwi                       <= mem_rdata_latched[6:0] == 7'b0101011;
+ 			is_sb_sh_sw                  <= mem_rdata_latched[6:0] == 7'b0100011;
+ 			is_alu_reg_imm               <= mem_rdata_latched[6:0] == 7'b0010011;
+ 			is_alu_reg_reg               <= mem_rdata_latched[6:0] == 7'b0110011;
+@@ -1047,6 +1051,7 @@
+ 			instr_lb    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b000;
+ 			instr_lh    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b001;
+ 			instr_lw    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b010;
++			instr_lwi   <= is_lwi && mem_rdata_q[14:12] == 3'b010 && mem_rdata_q[31:25] == 7'b0000000;
+ 			instr_lbu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b100;
+ 			instr_lhu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b101;
+ 
+@@ -1701,6 +1706,20 @@
+ 						cpu_state <= cpu_state_ldmem;
+ 						mem_do_rinst <= 1;
+ 					end
++					instr_lwi: begin
++						reg_op1 <= cpuregs_rs1;
++						dbg_rs1val <= cpuregs_rs1;
++						dbg_rs1val_valid <= 1;
++						if (ENABLE_REGS_DUALPORT) begin
++							// dual-port register file: rs2 is read in this same cycle
++							reg_op2 <= cpuregs_rs2;
++							dbg_rs2val <= cpuregs_rs2;
++							dbg_rs2val_valid <= 1;
++							cpu_state <= cpu_state_ldmem;
++							mem_do_rinst <= 1;
++						end else
++							cpu_state <= cpu_state_ld_rs2;   // single-port: read rs2 next cycle
++					end
+ 					is_slli_srli_srai && !BARREL_SHIFTER: begin
+ 						`debug($display("LD_RS1: %2d 0x%08x", decoded_rs1, cpuregs_rs1);)
+ 						reg_op1 <= cpuregs_rs1;
+@@ -1784,6 +1803,10 @@
+ 								cpu_state <= cpu_state_trap;
+ 						end
+ 					end
++					instr_lwi: begin
++						cpu_state <= cpu_state_ldmem;
++						mem_do_rinst <= 1;
++					end
+ 					is_sb_sh_sw: begin
+ 						cpu_state <= cpu_state_stmem;
+ 						mem_do_rinst <= 1;
+@@ -1885,16 +1908,18 @@
+ 						case (1'b1)
+ 							instr_lb || instr_lbu: mem_wordsize <= 2;
+ 							instr_lh || instr_lhu: mem_wordsize <= 1;
+-							instr_lw: mem_wordsize <= 0;
++							instr_lw || instr_lwi: mem_wordsize <= 0;
+ 						endcase
+-						latched_is_lu <= is_lbu_lhu_lw;
++						latched_is_lu <= is_lbu_lhu_lw || instr_lwi;
+ 						latched_is_lh <= instr_lh;
+ 						latched_is_lb <= instr_lb;
+ 						if (ENABLE_TRACE) begin
+ 							trace_valid <= 1;
+ 							trace_data <= (irq_active ? TRACE_IRQ : 0) | TRACE_ADDR | ((reg_op1 + decoded_imm) & 32'hffffffff);
+ 						end
+-						reg_op1 <= reg_op1 + decoded_imm;
++						// address = base + offset; the offset is the immediate for lw
++						// and the index register for lwi, so one adder serves both
++						reg_op1 <= reg_op1 + (instr_lwi ? reg_op2 : decoded_imm);
+ 						set_mem_do_rdata = 1;
+ 					end
+ 					if (!mem_do_prefetch && mem_done) begin
