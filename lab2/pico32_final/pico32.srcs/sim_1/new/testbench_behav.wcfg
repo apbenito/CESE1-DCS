@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,082.529 ns"></ZoomEndTime>
+      <Cursor1Time time="215.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="256"></NameColumnWidth>
+      <ValueColumnWidth column_width="144"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/trap" type="logic">
+      <obj_property name="ElementShortName">trap</obj_property>
+      <obj_property name="ObjectShortName">trap</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/mem_addr" type="array">
+      <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/mem_rdata" type="array">
+      <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/dbg_ascii_instr" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">dbg_ascii_instr[63:0]</obj_property>
+      <obj_property name="ObjectShortName">dbg_ascii_instr[63:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+      <obj_property name="label">instruction_ascii</obj_property>
+   </wvobject>
+   <wvobject fp_name="group189" type="group">
+      <obj_property name="label">Instruction</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/uut/dbg_insn_opcode" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_insn_opcode[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_insn_opcode[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="label">opcode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/dbg_insn_imm" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_insn_imm[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_insn_imm[31:0]</obj_property>
+         <obj_property name="label">imm</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/dbg_insn_rs1" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_insn_rs1[4:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_insn_rs1[4:0]</obj_property>
+         <obj_property name="label">rs1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/dbg_insn_rs2" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_insn_rs2[4:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_insn_rs2[4:0]</obj_property>
+         <obj_property name="label">rs2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/dbg_insn_rd" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_insn_rd[4:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_insn_rd[4:0]</obj_property>
+         <obj_property name="label">rd</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group192" type="group">
+      <obj_property name="label">Core</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/uut/dbg_ascii_state" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dbg_ascii_state[127:0]</obj_property>
+         <obj_property name="ObjectShortName">dbg_ascii_state[127:0]</obj_property>
+         <obj_property name="Radix">ASCIIRADIX</obj_property>
+         <obj_property name="label">cpu_state_ascii</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpu_state" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">cpu_state[7:0]</obj_property>
+         <obj_property name="ObjectShortName">cpu_state[7:0]</obj_property>
+         <obj_property name="label">cpu_state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpuregs_rs1" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">cpuregs_rs1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">cpuregs_rs1[31:0]</obj_property>
+         <obj_property name="label">cpuregs_rs1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpuregs_rs2" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">cpuregs_rs2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">cpuregs_rs2[31:0]</obj_property>
+         <obj_property name="label">cpuregs_rs2</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group784" type="group">
+      <obj_property name="label">Registers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/uut/cpuregs[5]" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="label">t0</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpuregs[6]" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="label">t1</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpuregs[7]" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="label">t2</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/uut/cpuregs[28]" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+         <obj_property name="label">t3</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

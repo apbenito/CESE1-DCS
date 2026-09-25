@@ -47,8 +47,6 @@
   `define assert(assert_expr) empty_statement
 `endif
 
-// uncomment this for register file in extra module
-// `define PICORV32_REGS picorv32_regs
 
 // this macro can be used to check if the verilog files in your
 // design are read in the correct order.
@@ -77,13 +75,13 @@ module picorv32 #(
 	parameter [ 0:0] ENABLE_FAST_MUL = 0,
 	parameter [ 0:0] ENABLE_DIV = 0,
 	parameter [ 0:0] ENABLE_IRQ = 0,
-	parameter [ 0:0] ENABLE_IRQ_QREGS = 1,
-	parameter [ 0:0] ENABLE_IRQ_TIMER = 1,
+	parameter [ 0:0] ENABLE_IRQ_QREGS = 0,
+	parameter [ 0:0] ENABLE_IRQ_TIMER = 0,
 	parameter [ 0:0] ENABLE_TRACE = 0,
 	parameter [ 0:0] REGS_INIT_ZERO = 0,
 	parameter [31:0] MASKED_IRQ = 32'h 0000_0000,
 	parameter [31:0] LATCHED_IRQ = 32'h ffff_ffff,
-	parameter [31:0] PROGADDR_RESET = 32'h 0000_0000,
+	parameter [31:0] PROGADDR_RESET = 32'h 4000_0000,
 	parameter [31:0] PROGADDR_IRQ = 32'h 0000_0010,
 	parameter [31:0] STACKADDR = 32'h ffff_ffff
 ) (
@@ -97,66 +95,8 @@ module picorv32 #(
 	output reg [31:0] mem_addr,
 	output reg [31:0] mem_wdata,
 	output reg [ 3:0] mem_wstrb,
-	input      [31:0] mem_rdata,
+	input      [31:0] mem_rdata
 
-	// Look-Ahead Interface
-	output            mem_la_read,
-	output            mem_la_write,
-	output     [31:0] mem_la_addr,
-	output reg [31:0] mem_la_wdata,
-	output reg [ 3:0] mem_la_wstrb,
-
-	// Pico Co-Processor Interface (PCPI)
-	output reg        pcpi_valid,
-	output reg [31:0] pcpi_insn,
-	output     [31:0] pcpi_rs1,
-	output     [31:0] pcpi_rs2,
-	input             pcpi_wr,
-	input      [31:0] pcpi_rd,
-	input             pcpi_wait,
-	input             pcpi_ready,
-
-	// IRQ Interface
-	input      [31:0] irq,
-	output reg [31:0] eoi,
-
-`ifdef RISCV_FORMAL
-	output reg        rvfi_valid,
-	output reg [63:0] rvfi_order,
-	output reg [31:0] rvfi_insn,
-	output reg        rvfi_trap,
-	output reg        rvfi_halt,
-	output reg        rvfi_intr,
-	output reg [ 1:0] rvfi_mode,
-	output reg [ 1:0] rvfi_ixl,
-	output reg [ 4:0] rvfi_rs1_addr,
-	output reg [ 4:0] rvfi_rs2_addr,
-	output reg [31:0] rvfi_rs1_rdata,
-	output reg [31:0] rvfi_rs2_rdata,
-	output reg [ 4:0] rvfi_rd_addr,
-	output reg [31:0] rvfi_rd_wdata,
-	output reg [31:0] rvfi_pc_rdata,
-	output reg [31:0] rvfi_pc_wdata,
-	output reg [31:0] rvfi_mem_addr,
-	output reg [ 3:0] rvfi_mem_rmask,
-	output reg [ 3:0] rvfi_mem_wmask,
-	output reg [31:0] rvfi_mem_rdata,
-	output reg [31:0] rvfi_mem_wdata,
-
-	output reg [63:0] rvfi_csr_mcycle_rmask,
-	output reg [63:0] rvfi_csr_mcycle_wmask,
-	output reg [63:0] rvfi_csr_mcycle_rdata,
-	output reg [63:0] rvfi_csr_mcycle_wdata,
-
-	output reg [63:0] rvfi_csr_minstret_rmask,
-	output reg [63:0] rvfi_csr_minstret_wmask,
-	output reg [63:0] rvfi_csr_minstret_rdata,
-	output reg [63:0] rvfi_csr_minstret_wdata,
-`endif
-
-	// Trace Interface
-	output reg        trace_valid,
-	output reg [35:0] trace_data
 );
 	localparam integer irq_timer = 0;
 	localparam integer irq_ebreak = 1;
@@ -171,6 +111,25 @@ module picorv32 #(
 	localparam [35:0] TRACE_BRANCH = {4'b 0001, 32'b 0};
 	localparam [35:0] TRACE_ADDR   = {4'b 0010, 32'b 0};
 	localparam [35:0] TRACE_IRQ    = {4'b 1000, 32'b 0};
+	
+	
+	wire mem_la_read;
+	wire mem_la_write;
+	wire [31:0] mem_la_addr;
+	reg [31:0] mem_la_wdata;
+	reg [ 3:0] mem_la_wstrb;
+	reg        pcpi_valid;
+	reg [31:0] pcpi_insn;
+	wire [31:0] pcpi_rs1;
+	wire [31:0] pcpi_rs2;
+	wire pcpi_wr;
+	wire [31:0] pcpi_rd;
+	wire pcpi_wait;
+	wire pcpi_ready;
+	wire [31:0] irq;
+	reg [31:0] eoi;
+	reg        trace_valid;
+	reg [35:0] trace_data;
 
 	reg [63:0] count_cycle, count_instr;
 	reg [31:0] reg_pc, reg_next_pc, reg_op1, reg_op2, reg_out;
@@ -347,7 +306,8 @@ module picorv32 #(
 
 
 	// Memory Interface
-
+    // Note: Ignore all mem_la_xxx signals, they are for the look-ahead module which is not implemented project.
+    
 	reg [1:0] mem_state;
 	reg [1:0] mem_wordsize;
 	reg [31:0] mem_rdata_word;
@@ -651,6 +611,7 @@ module picorv32 #(
 	reg instr_add, instr_sub, instr_sll, instr_slt, instr_sltu, instr_xor, instr_srl, instr_sra, instr_or, instr_and;
 	reg instr_rdcycle, instr_rdcycleh, instr_rdinstr, instr_rdinstrh, instr_ecall_ebreak, instr_fence;
 	reg instr_getq, instr_setq, instr_retirq, instr_maskirq, instr_waitirq, instr_timer;
+
 	wire instr_trap;
 
 	reg [regindex_bits-1:0] decoded_rd, decoded_rs1;
@@ -758,6 +719,7 @@ module picorv32 #(
 		if (instr_maskirq)  new_ascii_instr = "maskirq";
 		if (instr_waitirq)  new_ascii_instr = "waitirq";
 		if (instr_timer)    new_ascii_instr = "timer";
+
 	end
 
 	reg [63:0] q_ascii_instr;
@@ -1920,6 +1882,7 @@ module picorv32 #(
 						// address = base + offset; the offset is the immediate for lw
 						// and the index register for lwi, so one adder serves both
 						reg_op1 <= reg_op1 + (instr_lwi ? reg_op2 : decoded_imm);
+												
 						set_mem_do_rdata = 1;
 					end
 					if (!mem_do_prefetch && mem_done) begin
@@ -2191,28 +2154,6 @@ module picorv32 #(
 `endif
 endmodule
 
-// This is a simple example implementation of PICORV32_REGS.
-// Use the PICORV32_REGS mechanism if you want to use custom
-// memory resources to implement the processor register file.
-// Note that your implementation must match the requirements of
-// the PicoRV32 configuration. (e.g. QREGS, etc)
-module picorv32_regs (
-	input clk, wen,
-	input [5:0] waddr,
-	input [5:0] raddr1,
-	input [5:0] raddr2,
-	input [31:0] wdata,
-	output [31:0] rdata1,
-	output [31:0] rdata2
-);
-	reg [31:0] regs [0:30];
-
-	always @(posedge clk)
-		if (wen) regs[~waddr[4:0]] <= wdata;
-
-	assign rdata1 = regs[~raddr1[4:0]];
-	assign rdata2 = regs[~raddr2[4:0]];
-endmodule
 
 
 /***************************************************************
@@ -2591,47 +2532,9 @@ module picorv32_axi #(
 
 	input         mem_axi_rvalid,
 	output        mem_axi_rready,
-	input  [31:0] mem_axi_rdata,
+	input  [31:0] mem_axi_rdata
 
-	// Pico Co-Processor Interface (PCPI)
-	output        pcpi_valid,
-	output [31:0] pcpi_insn,
-	output [31:0] pcpi_rs1,
-	output [31:0] pcpi_rs2,
-	input         pcpi_wr,
-	input  [31:0] pcpi_rd,
-	input         pcpi_wait,
-	input         pcpi_ready,
 
-	// IRQ interface
-	input  [31:0] irq,
-	output [31:0] eoi,
-
-`ifdef RISCV_FORMAL
-	output        rvfi_valid,
-	output [63:0] rvfi_order,
-	output [31:0] rvfi_insn,
-	output        rvfi_trap,
-	output        rvfi_halt,
-	output        rvfi_intr,
-	output [ 4:0] rvfi_rs1_addr,
-	output [ 4:0] rvfi_rs2_addr,
-	output [31:0] rvfi_rs1_rdata,
-	output [31:0] rvfi_rs2_rdata,
-	output [ 4:0] rvfi_rd_addr,
-	output [31:0] rvfi_rd_wdata,
-	output [31:0] rvfi_pc_rdata,
-	output [31:0] rvfi_pc_wdata,
-	output [31:0] rvfi_mem_addr,
-	output [ 3:0] rvfi_mem_rmask,
-	output [ 3:0] rvfi_mem_wmask,
-	output [31:0] rvfi_mem_rdata,
-	output [31:0] rvfi_mem_wdata,
-`endif
-
-	// Trace Interface
-	output        trace_valid,
-	output [35:0] trace_data
 );
 	wire        mem_valid;
 	wire [31:0] mem_addr;
@@ -2707,44 +2610,11 @@ module picorv32_axi #(
 		.mem_wstrb(mem_wstrb),
 		.mem_instr(mem_instr),
 		.mem_ready(mem_ready),
-		.mem_rdata(mem_rdata),
+		.mem_rdata(mem_rdata)
 
-		.pcpi_valid(pcpi_valid),
-		.pcpi_insn (pcpi_insn ),
-		.pcpi_rs1  (pcpi_rs1  ),
-		.pcpi_rs2  (pcpi_rs2  ),
-		.pcpi_wr   (pcpi_wr   ),
-		.pcpi_rd   (pcpi_rd   ),
-		.pcpi_wait (pcpi_wait ),
-		.pcpi_ready(pcpi_ready),
 
-		.irq(irq),
-		.eoi(eoi),
 
-`ifdef RISCV_FORMAL
-		.rvfi_valid    (rvfi_valid    ),
-		.rvfi_order    (rvfi_order    ),
-		.rvfi_insn     (rvfi_insn     ),
-		.rvfi_trap     (rvfi_trap     ),
-		.rvfi_halt     (rvfi_halt     ),
-		.rvfi_intr     (rvfi_intr     ),
-		.rvfi_rs1_addr (rvfi_rs1_addr ),
-		.rvfi_rs2_addr (rvfi_rs2_addr ),
-		.rvfi_rs1_rdata(rvfi_rs1_rdata),
-		.rvfi_rs2_rdata(rvfi_rs2_rdata),
-		.rvfi_rd_addr  (rvfi_rd_addr  ),
-		.rvfi_rd_wdata (rvfi_rd_wdata ),
-		.rvfi_pc_rdata (rvfi_pc_rdata ),
-		.rvfi_pc_wdata (rvfi_pc_wdata ),
-		.rvfi_mem_addr (rvfi_mem_addr ),
-		.rvfi_mem_rmask(rvfi_mem_rmask),
-		.rvfi_mem_wmask(rvfi_mem_wmask),
-		.rvfi_mem_rdata(rvfi_mem_rdata),
-		.rvfi_mem_wdata(rvfi_mem_wdata),
-`endif
 
-		.trace_valid(trace_valid),
-		.trace_data (trace_data)
 	);
 endmodule
 
@@ -2832,243 +2702,3 @@ module picorv32_axi_adapter (
 	end
 endmodule
 
-
-/***************************************************************
- * picorv32_wb
- ***************************************************************/
-
-module picorv32_wb #(
-	parameter [ 0:0] ENABLE_COUNTERS = 1,
-	parameter [ 0:0] ENABLE_COUNTERS64 = 1,
-	parameter [ 0:0] ENABLE_REGS_16_31 = 1,
-	parameter [ 0:0] ENABLE_REGS_DUALPORT = 1,
-	parameter [ 0:0] TWO_STAGE_SHIFT = 1,
-	parameter [ 0:0] BARREL_SHIFTER = 0,
-	parameter [ 0:0] TWO_CYCLE_COMPARE = 0,
-	parameter [ 0:0] TWO_CYCLE_ALU = 0,
-	parameter [ 0:0] COMPRESSED_ISA = 0,
-	parameter [ 0:0] CATCH_MISALIGN = 1,
-	parameter [ 0:0] CATCH_ILLINSN = 1,
-	parameter [ 0:0] ENABLE_PCPI = 0,
-	parameter [ 0:0] ENABLE_MUL = 0,
-	parameter [ 0:0] ENABLE_FAST_MUL = 0,
-	parameter [ 0:0] ENABLE_DIV = 0,
-	parameter [ 0:0] ENABLE_IRQ = 0,
-	parameter [ 0:0] ENABLE_IRQ_QREGS = 1,
-	parameter [ 0:0] ENABLE_IRQ_TIMER = 1,
-	parameter [ 0:0] ENABLE_TRACE = 0,
-	parameter [ 0:0] REGS_INIT_ZERO = 0,
-	parameter [31:0] MASKED_IRQ = 32'h 0000_0000,
-	parameter [31:0] LATCHED_IRQ = 32'h ffff_ffff,
-	parameter [31:0] PROGADDR_RESET = 32'h 0000_0000,
-	parameter [31:0] PROGADDR_IRQ = 32'h 0000_0010,
-	parameter [31:0] STACKADDR = 32'h ffff_ffff
-) (
-	output trap,
-
-	// Wishbone interfaces
-	input wb_rst_i,
-	input wb_clk_i,
-
-	output reg [31:0] wbm_adr_o,
-	output reg [31:0] wbm_dat_o,
-	input [31:0] wbm_dat_i,
-	output reg wbm_we_o,
-	output reg [3:0] wbm_sel_o,
-	output reg wbm_stb_o,
-	input wbm_ack_i,
-	output reg wbm_cyc_o,
-
-	// Pico Co-Processor Interface (PCPI)
-	output        pcpi_valid,
-	output [31:0] pcpi_insn,
-	output [31:0] pcpi_rs1,
-	output [31:0] pcpi_rs2,
-	input         pcpi_wr,
-	input  [31:0] pcpi_rd,
-	input         pcpi_wait,
-	input         pcpi_ready,
-
-	// IRQ interface
-	input  [31:0] irq,
-	output [31:0] eoi,
-
-`ifdef RISCV_FORMAL
-	output        rvfi_valid,
-	output [63:0] rvfi_order,
-	output [31:0] rvfi_insn,
-	output        rvfi_trap,
-	output        rvfi_halt,
-	output        rvfi_intr,
-	output [ 4:0] rvfi_rs1_addr,
-	output [ 4:0] rvfi_rs2_addr,
-	output [31:0] rvfi_rs1_rdata,
-	output [31:0] rvfi_rs2_rdata,
-	output [ 4:0] rvfi_rd_addr,
-	output [31:0] rvfi_rd_wdata,
-	output [31:0] rvfi_pc_rdata,
-	output [31:0] rvfi_pc_wdata,
-	output [31:0] rvfi_mem_addr,
-	output [ 3:0] rvfi_mem_rmask,
-	output [ 3:0] rvfi_mem_wmask,
-	output [31:0] rvfi_mem_rdata,
-	output [31:0] rvfi_mem_wdata,
-`endif
-
-	// Trace Interface
-	output        trace_valid,
-	output [35:0] trace_data,
-
-	output mem_instr
-);
-	wire        mem_valid;
-	wire [31:0] mem_addr;
-	wire [31:0] mem_wdata;
-	wire [ 3:0] mem_wstrb;
-	reg         mem_ready;
-	reg [31:0] mem_rdata;
-
-	wire clk;
-	wire resetn;
-
-	assign clk = wb_clk_i;
-	assign resetn = ~wb_rst_i;
-
-	picorv32 #(
-		.ENABLE_COUNTERS     (ENABLE_COUNTERS     ),
-		.ENABLE_COUNTERS64   (ENABLE_COUNTERS64   ),
-		.ENABLE_REGS_16_31   (ENABLE_REGS_16_31   ),
-		.ENABLE_REGS_DUALPORT(ENABLE_REGS_DUALPORT),
-		.TWO_STAGE_SHIFT     (TWO_STAGE_SHIFT     ),
-		.BARREL_SHIFTER      (BARREL_SHIFTER      ),
-		.TWO_CYCLE_COMPARE   (TWO_CYCLE_COMPARE   ),
-		.TWO_CYCLE_ALU       (TWO_CYCLE_ALU       ),
-		.COMPRESSED_ISA      (COMPRESSED_ISA      ),
-		.CATCH_MISALIGN      (CATCH_MISALIGN      ),
-		.CATCH_ILLINSN       (CATCH_ILLINSN       ),
-		.ENABLE_PCPI         (ENABLE_PCPI         ),
-		.ENABLE_MUL          (ENABLE_MUL          ),
-		.ENABLE_FAST_MUL     (ENABLE_FAST_MUL     ),
-		.ENABLE_DIV          (ENABLE_DIV          ),
-		.ENABLE_IRQ          (ENABLE_IRQ          ),
-		.ENABLE_IRQ_QREGS    (ENABLE_IRQ_QREGS    ),
-		.ENABLE_IRQ_TIMER    (ENABLE_IRQ_TIMER    ),
-		.ENABLE_TRACE        (ENABLE_TRACE        ),
-		.REGS_INIT_ZERO      (REGS_INIT_ZERO      ),
-		.MASKED_IRQ          (MASKED_IRQ          ),
-		.LATCHED_IRQ         (LATCHED_IRQ         ),
-		.PROGADDR_RESET      (PROGADDR_RESET      ),
-		.PROGADDR_IRQ        (PROGADDR_IRQ        ),
-		.STACKADDR           (STACKADDR           )
-	) picorv32_core (
-		.clk      (clk   ),
-		.resetn   (resetn),
-		.trap     (trap  ),
-
-		.mem_valid(mem_valid),
-		.mem_addr (mem_addr ),
-		.mem_wdata(mem_wdata),
-		.mem_wstrb(mem_wstrb),
-		.mem_instr(mem_instr),
-		.mem_ready(mem_ready),
-		.mem_rdata(mem_rdata),
-
-		.pcpi_valid(pcpi_valid),
-		.pcpi_insn (pcpi_insn ),
-		.pcpi_rs1  (pcpi_rs1  ),
-		.pcpi_rs2  (pcpi_rs2  ),
-		.pcpi_wr   (pcpi_wr   ),
-		.pcpi_rd   (pcpi_rd   ),
-		.pcpi_wait (pcpi_wait ),
-		.pcpi_ready(pcpi_ready),
-
-		.irq(irq),
-		.eoi(eoi),
-
-`ifdef RISCV_FORMAL
-		.rvfi_valid    (rvfi_valid    ),
-		.rvfi_order    (rvfi_order    ),
-		.rvfi_insn     (rvfi_insn     ),
-		.rvfi_trap     (rvfi_trap     ),
-		.rvfi_halt     (rvfi_halt     ),
-		.rvfi_intr     (rvfi_intr     ),
-		.rvfi_rs1_addr (rvfi_rs1_addr ),
-		.rvfi_rs2_addr (rvfi_rs2_addr ),
-		.rvfi_rs1_rdata(rvfi_rs1_rdata),
-		.rvfi_rs2_rdata(rvfi_rs2_rdata),
-		.rvfi_rd_addr  (rvfi_rd_addr  ),
-		.rvfi_rd_wdata (rvfi_rd_wdata ),
-		.rvfi_pc_rdata (rvfi_pc_rdata ),
-		.rvfi_pc_wdata (rvfi_pc_wdata ),
-		.rvfi_mem_addr (rvfi_mem_addr ),
-		.rvfi_mem_rmask(rvfi_mem_rmask),
-		.rvfi_mem_wmask(rvfi_mem_wmask),
-		.rvfi_mem_rdata(rvfi_mem_rdata),
-		.rvfi_mem_wdata(rvfi_mem_wdata),
-`endif
-
-		.trace_valid(trace_valid),
-		.trace_data (trace_data)
-	);
-
-	localparam IDLE = 2'b00;
-	localparam WBSTART = 2'b01;
-	localparam WBEND = 2'b10;
-
-	reg [1:0] state;
-
-	wire we;
-	assign we = (mem_wstrb[0] | mem_wstrb[1] | mem_wstrb[2] | mem_wstrb[3]);
-
-	always @(posedge wb_clk_i) begin
-		if (wb_rst_i) begin
-			wbm_adr_o <= 0;
-			wbm_dat_o <= 0;
-			wbm_we_o <= 0;
-			wbm_sel_o <= 0;
-			wbm_stb_o <= 0;
-			wbm_cyc_o <= 0;
-			state <= IDLE;
-		end else begin
-			case (state)
-				IDLE: begin
-					if (mem_valid) begin
-						wbm_adr_o <= mem_addr;
-						wbm_dat_o <= mem_wdata;
-						wbm_we_o <= we;
-						wbm_sel_o <= mem_wstrb;
-
-						wbm_stb_o <= 1'b1;
-						wbm_cyc_o <= 1'b1;
-						state <= WBSTART;
-					end else begin
-						mem_ready <= 1'b0;
-
-						wbm_stb_o <= 1'b0;
-						wbm_cyc_o <= 1'b0;
-						wbm_we_o <= 1'b0;
-					end
-				end
-				WBSTART:begin
-					if (wbm_ack_i) begin
-						mem_rdata <= wbm_dat_i;
-						mem_ready <= 1'b1;
-
-						state <= WBEND;
-
-						wbm_stb_o <= 1'b0;
-						wbm_cyc_o <= 1'b0;
-						wbm_we_o <= 1'b0;
-					end
-				end
-				WBEND: begin
-					mem_ready <= 1'b0;
-
-					state <= IDLE;
-				end
-				default:
-					state <= IDLE;
-			endcase
-		end
-	end
-endmodule

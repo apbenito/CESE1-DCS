@@ -38,3 +38,20 @@ lab2/sim/*.lst
 # ---- python ----
 __pycache__/
 *.pyc
+
+# ---- lab2 template: keep only what opening the project needs ----
+# From .gen, only the HDL wrapper is referenced by the .xpr; the rest (IP
+# output products, ~58 MB) Vivado regenerates on first synthesis/simulation.
+lab2/pico32_final/pico32.gen/*
+!lab2/pico32_final/pico32.gen/sources_1/
+lab2/pico32_final/pico32.gen/sources_1/*
+!lab2/pico32_final/pico32.gen/sources_1/bd/
+lab2/pico32_final/pico32.gen/sources_1/bd/*
+!lab2/pico32_final/pico32.gen/sources_1/bd/design_1/
+lab2/pico32_final/pico32.gen/sources_1/bd/design_1/*
+!lab2/pico32_final/pico32.gen/sources_1/bd/design_1/hdl/
+lab2/pico32_final/workspace/
+*.xsa
+*.bak
+# incremental-synthesis checkpoint the .xpr references
+!lab2/pico32_final/pico32.srcs/utils_1/imports/synth_1/picorv32_axi.dcp

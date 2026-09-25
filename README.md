@@ -43,3 +43,22 @@ Board: PYNQ-Z1 (Zynq XC7Z020).
 Note: `.xpr` is not tracked. On a fresh machine (e.g. a lab PC), download the
 template projects and drop the tracked sources in, rather than expecting a
 project file to travel.
+
+## Lab 2
+
+    lab2/
+      pico32_final/                    template Vivado project (PicoRV32 on the PYNQ-Z1)
+        pico32.srcs/sources_1/bd/picorv32.v   the core, with lwi added
+        pico32.srcs/sim_1/new/testbench.v     the template's testbench
+        vitis_export_archive.ide.zip          Vitis project: ARM harness + blur programs
+      sim/                             Icarus Verilog verification of lwi
+      lwi.patch                        the lwi change against the template's core
+      Makefile
+
+`make test`, `make blur`, `make board` and `make scaling` from `lab2/`.
+`make board` runs the exact programs and image from the Vitis archive and
+checks the output the same way the ARM does.
+
+Only what opening the project needs is tracked. On first open, Vivado may
+report missing IP output products: right-click `design_1.bd` ->
+Generate Output Products (it also happens automatically on synthesis).

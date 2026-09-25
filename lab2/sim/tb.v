@@ -1,18 +1,25 @@
 `timescale 1ns / 1ps
 
-// Standalone testbench for the modified PicoRV32.
+// Standalone testbench for the template's PicoRV32, with the board's memory map:
+//   0x4000_0000  instruction memory (the core starts here)
+//   0x4200_0000  data memory
 //
-//   +code=<file>      instruction memory image, loaded at 0x0000_0000
-//   +data=<file>      data memory image, loaded at 0x4xxx_xxxx
+//   +code=<file>      program, loaded at 0x4000_0000
+//   +idata=<file>     extra words for instruction memory (use @addr lines),
+//                     e.g. the test values the manual's small programs read
+//   +data=<file>      data memory image, loaded at 0x4200_0000
 //   +maxcycles=<n>    stop after this many cycles
-//   +stopaddr=<hex>   stop once the program writes to this address
-//   +stoppc=<hex>     stop once execution reaches this address
+//   +stoppc=<hex>     stop once execution reaches this offset
+//   +dump=<file>      write data memory to a file when finished
 //
-// Build options: -DFAST_MEM for zero-wait memory (default is one cycle late),
-// -DSINGLE_PORT for a single-port register file.
+// Memory timing, chosen at compile time:
+//   (default)     same as the template's testbench.v: a read answers once a
+//                 delay counter reaches 3, a write answers on the next edge
+//   -DFAST_MEM    zero wait states
+//   -DSINGLE_PORT build the core with a single-port register file
 //
-// Every time an instruction starts, prints the address and the number of
-// cycles the previous instruction took ("CPI ...") for cpi.py to summarise.
+// Every time an instruction starts, prints the offset and the number of cycles
+// the previous instruction took ("CPI ...") for cpi.py to summarise.
 
 module tb;
 
@@ -29,6 +36,7 @@ module tb;
     reg  [31:0] mem_rdata;
     wire        trap;
 
+    // same configuration as the block design's picorv32 instance
     picorv32 #(
 `ifdef SINGLE_PORT
         .ENABLE_REGS_DUALPORT(0),
@@ -48,39 +56,61 @@ module tb;
         .mem_rdata (mem_rdata)
     );
 
-    // two separate arrays: code at 0x0000_0000, data at 0x4xxx_xxxx
-    reg [31:0] code [0:16383];
-    reg [31:0] data [0:16383];
+    reg [31:0] imem [0:16383];     // 0x4000_0000
+    reg [31:0] dmem [0:16383];     // 0x4200_0000
 
-    wire        is_data = mem_addr[30];
+    wire        in_dmem = mem_addr[25];
     wire [13:0] index   = mem_addr[15:2];
+    wire [31:0] word    = in_dmem ? dmem[index] : imem[index];
+
+    task write_word;
+        begin
+            if (in_dmem) begin
+                if (mem_wstrb[0]) dmem[index][ 7: 0] <= mem_wdata[ 7: 0];
+                if (mem_wstrb[1]) dmem[index][15: 8] <= mem_wdata[15: 8];
+                if (mem_wstrb[2]) dmem[index][23:16] <= mem_wdata[23:16];
+                if (mem_wstrb[3]) dmem[index][31:24] <= mem_wdata[31:24];
+            end else begin
+                if (mem_wstrb[0]) imem[index][ 7: 0] <= mem_wdata[ 7: 0];
+                if (mem_wstrb[1]) imem[index][15: 8] <= mem_wdata[15: 8];
+                if (mem_wstrb[2]) imem[index][23:16] <= mem_wdata[23:16];
+                if (mem_wstrb[3]) imem[index][31:24] <= mem_wdata[31:24];
+            end
+        end
+    endtask
 
 `ifdef FAST_MEM
     // zero wait states: memory answers in the same cycle it is asked
     always @* begin
         mem_ready = mem_valid;
-        mem_rdata = is_data ? data[index] : code[index];
+        mem_rdata = word;
     end
-    always @(posedge clk) begin
-        if (mem_valid && is_data) begin
-            if (mem_wstrb[0]) data[index][ 7: 0] <= mem_wdata[ 7: 0];
-            if (mem_wstrb[1]) data[index][15: 8] <= mem_wdata[15: 8];
-            if (mem_wstrb[2]) data[index][23:16] <= mem_wdata[23:16];
-            if (mem_wstrb[3]) data[index][31:24] <= mem_wdata[31:24];
-        end
-    end
+    always @(posedge clk)
+        if (mem_valid && mem_wstrb) write_word;
 `else
-    // one cycle latency, same as the reference testbench_ez.v upstream
+    // Same timing as the template's memory module. The template drives
+    // mem_ready from two always blocks on the same edge; here they are one
+    // block in the same order, so the later assignment reliably wins -- the
+    // behaviour Vivado's simulator gives the original.
+    reg [2:0]  delay_counter = 0;
+    reg [31:0] read_data;
     always @(posedge clk) begin
-        mem_ready <= 0;
-        if (mem_valid && !mem_ready) begin
-            mem_ready <= 1;
-            mem_rdata <= is_data ? data[index] : code[index];
-            if (is_data) begin
-                if (mem_wstrb[0]) data[index][ 7: 0] <= mem_wdata[ 7: 0];
-                if (mem_wstrb[1]) data[index][15: 8] <= mem_wdata[15: 8];
-                if (mem_wstrb[2]) data[index][23:16] <= mem_wdata[23:16];
-                if (mem_wstrb[3]) data[index][31:24] <= mem_wdata[31:24];
+        if (mem_valid) begin
+            mem_ready <= 1'b0;
+            if (mem_wstrb != 4'b0000) begin
+                write_word;
+                mem_ready <= 1'b1;
+            end else
+                read_data <= word;
+        end else
+            mem_ready <= 1'b0;
+
+        if (mem_valid && mem_wstrb == 4'b0000) begin
+            delay_counter <= delay_counter + 1;
+            if (delay_counter == 3) begin
+                mem_rdata <= read_data;
+                delay_counter <= 0;
+                mem_ready <= 1'b1;
             end
         end
     end
@@ -90,6 +120,7 @@ module tb;
     integer cycle = 0;
     integer last_start = -1;
     reg [31:0] last_addr;
+    wire [31:0] pc_offset = uut.next_pc & 32'h00FF_FFFF;
 
     always @(posedge clk) begin
         cycle <= cycle + 1;
@@ -97,25 +128,24 @@ module tb;
             if (last_start >= 0)
                 $display("CPI %08x %0d", last_addr, cycle - last_start);
             last_start <= cycle;
-            last_addr  <= uut.next_pc;
+            last_addr  <= pc_offset;
         end
     end
 
     // ---- run control -----------------------------------------------------
-    reg [1023:0] code_file, data_file;
+    reg [1023:0] code_file, idata_file, data_file, dump_file;
     integer max_cycles;
-    reg [31:0] stop_addr, stop_pc;
-    reg has_stop, has_stop_pc;
+    reg [31:0] stop_pc;
+    reg has_stop_pc;
 
     initial begin
         if (!$value$plusargs("code=%s", code_file)) $fatal(1, "missing +code=<file>");
-        if (!$value$plusargs("data=%s", data_file)) $fatal(1, "missing +data=<file>");
         if (!$value$plusargs("maxcycles=%d", max_cycles)) max_cycles = 200;
-        has_stop    = $value$plusargs("stopaddr=%h", stop_addr);
         has_stop_pc = $value$plusargs("stoppc=%h", stop_pc);
 
-        $readmemh(code_file, code);
-        $readmemh(data_file, data);
+        $readmemh(code_file, imem);
+        if ($value$plusargs("idata=%s", idata_file)) $readmemh(idata_file, imem);
+        if ($value$plusargs("data=%s", data_file))   $readmemh(data_file, dmem);
 
         repeat (5) @(posedge clk);
         resetn <= 1;
@@ -130,22 +160,16 @@ module tb;
             $display("TRAP at cycle %0d", cycle);
             finish;
         end
-        if (has_stop_pc && resetn && uut.launch_next_insn && uut.next_pc == stop_pc) begin
-            repeat (2) @(posedge clk);
-            finish;
-        end
-        if (has_stop && mem_valid && mem_ready && |mem_wstrb && mem_addr == stop_addr) begin
+        if (has_stop_pc && resetn && uut.launch_next_insn && pc_offset == stop_pc) begin
             repeat (2) @(posedge clk);
             finish;
         end
     end
 
-    reg [1023:0] dump_file;
-
     task finish;
         begin
             if ($value$plusargs("dump=%s", dump_file))
-                $writememh(dump_file, data);
+                $writememh(dump_file, dmem);
             $display("REG t1 %0d", uut.cpuregs[6]);
             $display("REG t2 %0d", uut.cpuregs[7]);
             $display("REG t3 %0d", uut.cpuregs[28]);

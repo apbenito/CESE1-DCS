@@ -1,6 +1,6 @@
---- /private/tmp/claude-501/-Users-parellano-Git-CESE1-DCS/d35e1389-7856-4b6f-a51f-a5756d6e9429/scratchpad/picorv32_upstream.v	2026-09-24 15:58:03
-+++ picorv32.v	2026-09-24 16:06:36
-@@ -646,6 +646,7 @@
+--- pico32.srcs/sources_1/bd/picorv32.v.orig
++++ pico32.srcs/sources_1/bd/picorv32.v
+@@ -606,6 +606,7 @@
  	reg instr_lui, instr_auipc, instr_jal, instr_jalr;
  	reg instr_beq, instr_bne, instr_blt, instr_bge, instr_bltu, instr_bgeu;
  	reg instr_lb, instr_lh, instr_lw, instr_lbu, instr_lhu, instr_sb, instr_sh, instr_sw;
@@ -8,7 +8,7 @@
  	reg instr_addi, instr_slti, instr_sltiu, instr_xori, instr_ori, instr_andi, instr_slli, instr_srli, instr_srai;
  	reg instr_add, instr_sub, instr_sll, instr_slt, instr_sltu, instr_xor, instr_srl, instr_sra, instr_or, instr_and;
  	reg instr_rdcycle, instr_rdcycleh, instr_rdinstr, instr_rdinstrh, instr_ecall_ebreak, instr_fence;
-@@ -663,6 +664,7 @@
+@@ -624,6 +625,7 @@
  
  	reg is_lui_auipc_jal;
  	reg is_lb_lh_lw_lbu_lhu;
@@ -16,7 +16,7 @@
  	reg is_slli_srli_srai;
  	reg is_jalr_addi_slti_sltiu_xori_ori_andi;
  	reg is_sb_sh_sw;
-@@ -678,7 +680,7 @@
+@@ -639,7 +641,7 @@
  
  	assign instr_trap = (CATCH_ILLINSN || WITH_PCPI) && !{instr_lui, instr_auipc, instr_jal, instr_jalr,
  			instr_beq, instr_bne, instr_blt, instr_bge, instr_bltu, instr_bgeu,
@@ -25,7 +25,7 @@
  			instr_addi, instr_slti, instr_sltiu, instr_xori, instr_ori, instr_andi, instr_slli, instr_srli, instr_srai,
  			instr_add, instr_sub, instr_sll, instr_slt, instr_sltu, instr_xor, instr_srl, instr_sra, instr_or, instr_and,
  			instr_rdcycle, instr_rdcycleh, instr_rdinstr, instr_rdinstrh, instr_fence,
-@@ -716,6 +718,7 @@
+@@ -677,6 +679,7 @@
  		if (instr_lb)       new_ascii_instr = "lb";
  		if (instr_lh)       new_ascii_instr = "lh";
  		if (instr_lw)       new_ascii_instr = "lw";
@@ -33,7 +33,7 @@
  		if (instr_lbu)      new_ascii_instr = "lbu";
  		if (instr_lhu)      new_ascii_instr = "lhu";
  		if (instr_sb)       new_ascii_instr = "sb";
-@@ -873,6 +876,7 @@
+@@ -835,6 +838,7 @@
  
  			is_beq_bne_blt_bge_bltu_bgeu <= mem_rdata_latched[6:0] == 7'b1100011;
  			is_lb_lh_lw_lbu_lhu          <= mem_rdata_latched[6:0] == 7'b0000011;
@@ -41,7 +41,7 @@
  			is_sb_sh_sw                  <= mem_rdata_latched[6:0] == 7'b0100011;
  			is_alu_reg_imm               <= mem_rdata_latched[6:0] == 7'b0010011;
  			is_alu_reg_reg               <= mem_rdata_latched[6:0] == 7'b0110011;
-@@ -1047,6 +1051,7 @@
+@@ -1009,6 +1013,7 @@
  			instr_lb    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b000;
  			instr_lh    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b001;
  			instr_lw    <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b010;
@@ -49,7 +49,7 @@
  			instr_lbu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b100;
  			instr_lhu   <= is_lb_lh_lw_lbu_lhu && mem_rdata_q[14:12] == 3'b101;
  
-@@ -1701,6 +1706,20 @@
+@@ -1663,6 +1668,20 @@
  						cpu_state <= cpu_state_ldmem;
  						mem_do_rinst <= 1;
  					end
@@ -70,7 +70,7 @@
  					is_slli_srli_srai && !BARREL_SHIFTER: begin
  						`debug($display("LD_RS1: %2d 0x%08x", decoded_rs1, cpuregs_rs1);)
  						reg_op1 <= cpuregs_rs1;
-@@ -1784,6 +1803,10 @@
+@@ -1746,6 +1765,10 @@
  								cpu_state <= cpu_state_trap;
  						end
  					end
@@ -81,7 +81,7 @@
  					is_sb_sh_sw: begin
  						cpu_state <= cpu_state_stmem;
  						mem_do_rinst <= 1;
-@@ -1885,16 +1908,18 @@
+@@ -1847,16 +1870,18 @@
  						case (1'b1)
  							instr_lb || instr_lbu: mem_wordsize <= 2;
  							instr_lh || instr_lhu: mem_wordsize <= 1;
@@ -100,6 +100,6 @@
 +						// address = base + offset; the offset is the immediate for lw
 +						// and the index register for lwi, so one adder serves both
 +						reg_op1 <= reg_op1 + (instr_lwi ? reg_op2 : decoded_imm);
+ 												
  						set_mem_do_rdata = 1;
  					end
- 					if (!mem_do_prefetch && mem_done) begin
