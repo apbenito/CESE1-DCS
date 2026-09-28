@@ -11,6 +11,7 @@
 //   +maxcycles=<n>    stop after this many cycles
 //   +stoppc=<hex>     stop once execution reaches this offset
 //   +dump=<file>      write data memory to a file when finished
+//   +vcd=<file>       write a waveform (only for short programs)
 //
 // Memory timing, chosen at compile time:
 //   (default)     same as the template's testbench.v: a read answers once a
@@ -115,6 +116,25 @@ module tb;
         end
     end
 `endif
+
+    // ---- waveform ----------------------------------------------------------
+    // Registers live in an array, which Icarus doesn't dump, so the ones the
+    // manual asks about get their own names. opcode and instr show which
+    // instruction is executing, like the OPCODE signal in Vivado.
+    wire [31:0] t0     = uut.cpuregs[5];
+    wire [31:0] t1     = uut.cpuregs[6];
+    wire [31:0] t2     = uut.cpuregs[7];
+    wire [31:0] t3     = uut.cpuregs[28];
+    wire [31:0] opcode = uut.dbg_insn_opcode;
+    wire [63:0] instr  = uut.dbg_ascii_instr;
+
+    reg [1023:0] vcd_file;
+    initial
+        if ($value$plusargs("vcd=%s", vcd_file)) begin
+            $dumpfile(vcd_file);
+            $dumpvars(1, tb);                 // this module's signals only
+            $dumpvars(1, uut);                // plus the core's top level
+        end
 
     // ---- cycles per instruction ------------------------------------------
     integer cycle = 0;

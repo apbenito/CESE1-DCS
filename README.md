@@ -56,6 +56,9 @@ project file to travel.
       Makefile
 
 `make test`, `make blur`, `make board` and `make scaling` from `lab2/`.
+`make ta` runs the template's own testbench.v under Icarus and writes a
+waveform (`P=modified` for the lwi program); `make wave` does the same with
+the standalone testbench. Open the .vcd with the Surfer extension in VS Code.
 `make board` runs the exact programs and image from the Vitis archive and
 checks the output the same way the ARM does.
 
