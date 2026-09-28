@@ -14,3 +14,7 @@ Makefile text eol=lf
 *.dcp  binary
 *.bit  binary
 *.wdb  binary
+
+# lab2/template is an untouched reference copy of the template: store it
+# byte for byte, no line-ending conversion
+lab2/template/** -text

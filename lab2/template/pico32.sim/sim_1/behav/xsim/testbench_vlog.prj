@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../pico32.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../pico32.gen/sources_1/bd/design_1/ipshared/6b2b/hdl" --include "D:/Program_Files/Xilinx/Vivado/2023.2/data/xilinx_vip/include" \
+"../../../../pico32.srcs/sources_1/bd/picorv32.v" \
+"../../../../pico32.srcs/sim_1/new/testbench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

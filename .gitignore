@@ -58,3 +58,6 @@ lab2/pico32_final/workspace/*
 *.bak
 # incremental-synthesis checkpoint the .xpr references
 !lab2/pico32_final/pico32.srcs/utils_1/imports/synth_1/picorv32_axi.dcp
+
+# ---- lab2/template: untouched reference copy, keep every file ----
+!lab2/template/**

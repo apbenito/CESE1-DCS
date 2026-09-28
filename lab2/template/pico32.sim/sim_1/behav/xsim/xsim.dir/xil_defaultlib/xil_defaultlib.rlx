@@ -1,0 +1,7 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+E:/TUD/Vivado_Projects/CE_Lab2/pico32_template/pico32.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,axi_vip_v1_1_15;processing_system7_vip_v1_0_17;xilinx_vip,,,,,,
+E:/TUD/Vivado_Projects/CE_Lab2/pico32_template/pico32.srcs/sim_1/new/testbench.v,1726736333,verilog,,,,memory;testbench,,axi_vip_v1_1_15;processing_system7_vip_v1_0_17;xilinx_vip,../../../../pico32.gen/sources_1/bd/design_1/ipshared/6b2b/hdl;../../../../pico32.gen/sources_1/bd/design_1/ipshared/ec67/hdl;D:/Program_Files/Xilinx/Vivado/2023.2/data/xilinx_vip/include,,,,,
+E:/TUD/Vivado_Projects/CE_Lab2/pico32_template/pico32.srcs/sources_1/bd/picorv32.v,1726650808,verilog,,E:/TUD/Vivado_Projects/CE_Lab2/pico32_template/pico32.srcs/sim_1/new/testbench.v,,picorv32;picorv32_axi;picorv32_axi_adapter;picorv32_pcpi_div;picorv32_pcpi_fast_mul;picorv32_pcpi_mul,,axi_vip_v1_1_15;processing_system7_vip_v1_0_17;xilinx_vip,../../../../pico32.gen/sources_1/bd/design_1/ipshared/6b2b/hdl;../../../../pico32.gen/sources_1/bd/design_1/ipshared/ec67/hdl;D:/Program_Files/Xilinx/Vivado/2023.2/data/xilinx_vip/include,,,,,
