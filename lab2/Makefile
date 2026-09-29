@@ -1,5 +1,5 @@
 # Lab 2 -- verification of the lwi instruction with Icarus Verilog, using the
-# template's own core. Vivado is still needed for the bitstream.
+# core in solution/. Vivado is still needed for the bitstream.
 #
 #   make test      the manual's two test programs, cycles per instruction
 #   make blur      both image-blur programs on a test image, checked pixel by pixel
@@ -17,8 +17,8 @@
 SIM   := sim
 BUILD := $(SIM)/build
 IV    := iverilog -g2012
-CORE  := pico32_final/pico32.srcs/sources_1/bd/picorv32.v
-VITIS := pico32_final/vitis_export_archive.ide.zip
+CORE  := solution/pico32.srcs/sources_1/bd/picorv32.v
+VITIS := template/vitis_export_archive.ide.zip
 
 PROGS := baseline modified blur_baseline blur_modified
 MEMS  := $(PROGS:%=$(SIM)/%.mem)
@@ -85,7 +85,7 @@ scaling: $(MEMS) $(BUILD)/ta.vvp
 
 # ---- waveforms ----------------------------------------------------------------
 P      ?= baseline
-TA_SIM := pico32_final/pico32.srcs/sim_1/new
+TA_SIM := solution/pico32.srcs/sim_1/new
 OPEN    = echo "waveform: $(1)"; command -v code >/dev/null 2>&1 && code $(1) || true
 
 wave: $(MEMS) $(BUILD)/test_idata.mem $(BUILD)/ta.vvp
@@ -102,6 +102,8 @@ ta: $(MEMS)
 	@cd $(BUILD)/ta && vvp -n sim.vvp +vcd=$(P).vcd 2>/dev/null | grep -v WARNING > $(P).out
 	@python3 $(SIM)/cpi.py $(SIM)/$(P).lst $(BUILD)/ta/$(P).out
 	@$(call OPEN,$(BUILD)/ta/$(P).vcd)
+
+
 
 clean:
 	rm -rf $(BUILD) $(SIM)/*.mem $(SIM)/*.lst

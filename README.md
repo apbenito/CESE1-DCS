@@ -47,21 +47,19 @@ project file to travel.
 ## Lab 2
 
     lab2/
-      pico32_final/                    template Vivado project (PicoRV32 on the PYNQ-Z1)
-        pico32.srcs/sources_1/bd/picorv32.v   the core, with lwi added
-        pico32.srcs/sim_1/new/testbench.v     the template's testbench
-        vitis_export_archive.ide.zip          Vitis project: ARM harness + blur programs
+      solution/                        the Vivado project with lwi added
+        pico32.srcs/sources_1/bd/picorv32.v   the core
+        pico32.srcs/sim_1/new/testbench.v     the template's testbench (loads mod_memory.mem)
+      template/                        the template exactly as downloaded, as a clean base
       sim/                             Icarus Verilog verification of lwi
-      lwi.patch                        the lwi change against the template's core
       Makefile
 
-`make test`, `make blur`, `make board` and `make scaling` from `lab2/`.
-`make ta` runs the template's own testbench.v under Icarus and writes a
-waveform (`P=modified` for the lwi program); `make wave` does the same with
-the standalone testbench. Open the .vcd with the Surfer extension in VS Code.
-`make board` runs the exact programs and image from the Vitis archive and
-checks the output the same way the ARM does.
+`solution/` and `template/` are complete projects, stored byte for byte, so
+`git diff --no-index lab2/template lab2/solution` shows exactly what changed.
 
-Only what opening the project needs is tracked. On first open, Vivado may
-report missing IP output products: right-click `design_1.bd` ->
-Generate Output Products (it also happens automatically on synthesis).
+From `lab2/`: `make test`, `make blur`, `make board` and `make scaling` check the
+core in `solution/`. `make board` runs the exact programs and image from the
+Vitis archive and checks the output the same way the ARM does. `make ta` runs
+the testbench.v under Icarus and writes a waveform (`P=modified` for the lwi
+program); `make wave` does the same with the standalone testbench. Open the
+.vcd with the Surfer extension in VS Code.

@@ -15,6 +15,7 @@ Makefile text eol=lf
 *.bit  binary
 *.wdb  binary
 
-# lab2/template is an untouched reference copy of the template: store it
-# byte for byte, no line-ending conversion
+# lab2/template (untouched download) and lab2/solution (with lwi) are stored
+# byte for byte, no line-ending conversion, so diffing them shows only real changes
 lab2/template/** -text
+lab2/solution/** -text

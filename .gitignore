@@ -39,25 +39,16 @@ lab2/sim/*.lst
 __pycache__/
 *.pyc
 
-# ---- lab2 template: keep only what opening the project needs ----
-# From .gen, only the HDL wrapper is referenced by the .xpr; the rest (IP
-# output products, ~58 MB) Vivado regenerates on first synthesis/simulation.
-lab2/pico32_final/pico32.gen/*
-!lab2/pico32_final/pico32.gen/sources_1/
-lab2/pico32_final/pico32.gen/sources_1/*
-!lab2/pico32_final/pico32.gen/sources_1/bd/
-lab2/pico32_final/pico32.gen/sources_1/bd/*
-!lab2/pico32_final/pico32.gen/sources_1/bd/design_1/
-lab2/pico32_final/pico32.gen/sources_1/bd/design_1/*
-!lab2/pico32_final/pico32.gen/sources_1/bd/design_1/hdl/
-# Vitis workspace: the manual has you select this folder, so keep it,
-# but not the platform and build output Vitis puts in it
-lab2/pico32_final/workspace/*
-!lab2/pico32_final/workspace/.gitkeep
 *.xsa
 *.bak
-# incremental-synthesis checkpoint the .xpr references
-!lab2/pico32_final/pico32.srcs/utils_1/imports/synth_1/picorv32_axi.dcp
 
-# ---- lab2/template: untouched reference copy, keep every file ----
+# ---- lab2/template and lab2/solution: complete Vivado projects ----
+# template is the untouched download, solution is the same project with lwi
+# added. Both keep every file, so they open in Vivado exactly as they are here.
 !lab2/template/**
+!lab2/solution/**
+# ...except what Vitis builds inside a workspace. solution/workspace is kept as
+# an empty folder because the manual has you select it.
+lab2/template/workspace/*
+lab2/solution/workspace/*
+!lab2/solution/workspace/.gitkeep

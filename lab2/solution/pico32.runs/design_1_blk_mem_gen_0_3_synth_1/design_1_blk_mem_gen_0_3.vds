@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun Aug 11 11:18:57 2024
+# Process ID: 29224
+# Current directory: E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1
+# Command line: vivado.exe -log design_1_blk_mem_gen_0_3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_blk_mem_gen_0_3.tcl
+# Log file: E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3.vds
+# Journal file: E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1\vivado.jou
+# Running On: DESKTOP-5D6U9FV, OS: Windows, CPU Frequency: 1800 MHz, CPU Physical cores: 4, Host memory: 17061 MB
+#-----------------------------------------------------------
+source design_1_blk_mem_gen_0_3.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 452.777 ; gain = 184.230
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_blk_mem_gen_0_3
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 501cb89d185c7065 to dir: E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/TUD/Vivado_Projects/pico32/pico32.cache/ip/2023.2/5/0/501cb89d185c7065/design_1_blk_mem_gen_0_2.dcp to E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/TUD/Vivado_Projects/pico32/pico32.cache/ip/2023.2/5/0/501cb89d185c7065/design_1_blk_mem_gen_0_2_sim_netlist.v to E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/TUD/Vivado_Projects/pico32/pico32.cache/ip/2023.2/5/0/501cb89d185c7065/design_1_blk_mem_gen_0_2_sim_netlist.vhdl to E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/TUD/Vivado_Projects/pico32/pico32.cache/ip/2023.2/5/0/501cb89d185c7065/design_1_blk_mem_gen_0_2_stub.v to E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/TUD/Vivado_Projects/pico32/pico32.cache/ip/2023.2/5/0/501cb89d185c7065/design_1_blk_mem_gen_0_2_stub.vhdl to E:/TUD/Vivado_Projects/pico32/pico32.runs/design_1_blk_mem_gen_0_3_synth_1/design_1_blk_mem_gen_0_3_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_blk_mem_gen_0_3, cache-ID = 501cb89d185c7065.
+INFO: [Common 17-206] Exiting Vivado at Sun Aug 11 11:19:11 2024...
