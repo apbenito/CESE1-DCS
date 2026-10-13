@@ -19,3 +19,9 @@ Makefile text eol=lf
 # byte for byte, no line-ending conversion, so diffing them shows only real changes
 lab2/template/** -text
 lab2/solution/** -text
+
+# lab3: the template as downloaded, the solution built from it, and GVSoC's
+# isa files before/after lwi, all byte for byte so diffs show only real changes
+lab3/template/** -text
+lab3/cese4130-lab4/** -text
+lab3/gvsoc/** -text
