@@ -52,3 +52,7 @@ __pycache__/
 lab2/template/workspace/*
 lab2/solution/workspace/*
 !lab2/solution/workspace/.gitkeep
+
+# ---- lab3/results: measurement logs from the VM, kept as evidence ----
+# (p2_verify.log is what the TA signs off on)
+!lab3/results/*.log

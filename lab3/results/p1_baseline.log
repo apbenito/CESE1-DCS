@@ -1,0 +1,193 @@
+make -C ../../../.. TARGETS=my_system MODULES=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline build
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc'
+# Change directory to curdir to avoid issue with symbolic links
+cd /home/ce-user/trial2/gvsoc && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_INSTALL_PREFIX=install \
+	-DGVSOC_MODULES="/home/ce-user/trial2/gvsoc/core/models;/home/ce-user/trial2/gvsoc/pulp;/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline" \
+	-DGVSOC_TARGETS="my_system" \
+	-DCMAKE_SKIP_INSTALL_RPATH=false
+-- Generating GVSOC config to /home/ce-user/trial2/gvsoc/build/gvsoc/configs/my_system.config with command: 
+--     gapy --target=my_system --target-dir=/home/ce-user/trial2/gvsoc/core/models --target-dir=/home/ce-user/trial2/gvsoc/pulp --target-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline --platform=gvsoc --builddir=/home/ce-user/trial2/gvsoc/build/core --installdir=/home/ce-user/trial2/gvsoc/install/models --component-file=/home/ce-user/trial2/gvsoc/build/gvsoc/configs/my_system.config components --py-stack
+-- setting optimized
+-- /home/ce-user/trial2/gvsoc/pulp
+-- /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ce-user/trial2/gvsoc/build
+cd /home/ce-user/trial2/gvsoc && cmake --build build -j 6
+gmake[2]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[3]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 31%] Built target gvsoc
+[ 38%] Built target gvsoc_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_memory_memory_cpp_149327240_optim
+Consolidate compiler generated dependencies of target gen_interco_router_common_cpp_121245830_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_interco_router_common_cpp_121245830_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsocdpi
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 40%] Built target gen_interco_router_common_cpp_121245830_optim
+[ 41%] Built target gen_interco_router_common_cpp_121245830_debug
+[ 42%] Built target gen_memory_memory_cpp_149327240_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 43%] Built target gvsocdpi
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc_launcher
+Consolidate compiler generated dependencies of target gvsoc_launcher_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target cpu.emulation.emulation_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target cpu.emulation.emulation_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 44%] Built target gvsoc_launcher_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_isa_rv64imafdc_cpp_56505881_optim
+[ 45%] Built target gvsoc_launcher
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 45%] Built target cpu.emulation.emulation_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 46%] Built target cpu.emulation.emulation_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target i2c_helper_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_isa_rv64imafdc_cpp_56505881_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target i2c_helper_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target io_audio_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target io_audio_debug
+[ 58%] Built target gen_isa_rv64imafdc_cpp_56505881_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 59%] Built target i2c_helper_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 60%] Built target i2c_helper_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 61%] Built target io_audio_optim
+[ 62%] Built target io_audio_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 75%] Built target gen_isa_rv64imafdc_cpp_56505881_debug
+Consolidate compiler generated dependencies of target pcm_pdm_conversion_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target pcm_pdm_conversion_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target mem_plug_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target mem_plug_debug
+Consolidate compiler generated dependencies of target utils.composite_impl_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 78%] Built target pcm_pdm_conversion_optim
+Consolidate compiler generated dependencies of target utils.composite_impl_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 81%] Built target pcm_pdm_conversion_debug
+[ 82%] Built target mem_plug_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 84%] Built target utils.composite_impl_optim
+[ 84%] Built target mem_plug_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 85%] Built target utils.composite_impl_debug
+Consolidate compiler generated dependencies of target utils.dpi_chip_wrapper_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.dpi_chip_wrapper_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.loader.loader_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target vp.clock_engine_module_optim
+Consolidate compiler generated dependencies of target utils.loader.loader_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 86%] Built target utils.dpi_chip_wrapper_optim
+Consolidate compiler generated dependencies of target vp.clock_engine_module_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 87%] Built target utils.dpi_chip_wrapper_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 88%] Built target utils.loader.loader_optim
+[ 89%] Built target vp.clock_engine_module_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 90%] Built target utils.loader.loader_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 91%] Built target vp.clock_engine_module_debug
+Consolidate compiler generated dependencies of target gen_memory_memory_cpp_149327240_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.transfer_function_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.transfer_function_debug
+Consolidate compiler generated dependencies of target devices.sound.microphone.i2s.i2s_microphone_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.microphone.i2s.i2s_microphone_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 92%] Built target gen_memory_memory_cpp_149327240_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.testbench.testbench_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 93%] Built target devices.sound.transfer_function_optim
+[ 94%] Built target devices.sound.transfer_function_debug
+[ 95%] Built target devices.sound.microphone.i2s.i2s_microphone_optim
+[ 96%] Built target devices.sound.microphone.i2s.i2s_microphone_debug
+Consolidate compiler generated dependencies of target devices.testbench.testbench_debug
+[ 98%] Built target devices.testbench.testbench_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[100%] Built target devices.testbench.testbench_debug
+gmake[3]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[2]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+cd /home/ce-user/trial2/gvsoc && cmake --install build
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin
+-- Installing: /home/ce-user/trial2/gvsoc/install/bin/gvsoc
+-- Installing: /home/ce-user/trial2/gvsoc/install/bin/gvsoc
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/flash.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/flash.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/rom_v2.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/default_flash_content.json
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/target.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/littlefs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/raw.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/partition.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/hostfs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/readfs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/utils.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gen-debug-info
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapy
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline/build
+riscv64-unknown-elf-gcc -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments
+../../../../install/bin/gvsoc  --target-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline --target=my_system --work-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline/build --binary=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/img-blur-baseline/build/test run --trace=host/insn > out.log
+python3 process.py
+Cycle count difference of 'main:' occurrences: 277398.0

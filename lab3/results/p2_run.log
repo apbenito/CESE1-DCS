@@ -1,0 +1,440 @@
+make -C ../../../.. TARGETS=my_system MODULES=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2 build
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc'
+# Change directory to curdir to avoid issue with symbolic links
+cd /home/ce-user/trial2/gvsoc && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_INSTALL_PREFIX=install \
+	-DGVSOC_MODULES="/home/ce-user/trial2/gvsoc/core/models;/home/ce-user/trial2/gvsoc/pulp;/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2" \
+	-DGVSOC_TARGETS="my_system" \
+	-DCMAKE_SKIP_INSTALL_RPATH=false
+-- Generating GVSOC config to /home/ce-user/trial2/gvsoc/build/gvsoc/configs/my_system.config with command: 
+--     gapy --target=my_system --target-dir=/home/ce-user/trial2/gvsoc/core/models --target-dir=/home/ce-user/trial2/gvsoc/pulp --target-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2 --platform=gvsoc --builddir=/home/ce-user/trial2/gvsoc/build/core --installdir=/home/ce-user/trial2/gvsoc/install/models --component-file=/home/ce-user/trial2/gvsoc/build/gvsoc/configs/my_system.config components --py-stack
+-- setting optimized
+-- /home/ce-user/trial2/gvsoc/pulp
+-- /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ce-user/trial2/gvsoc/build
+cd /home/ce-user/trial2/gvsoc && cmake --build build -j 6
+gmake[2]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[3]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc
+Consolidate compiler generated dependencies of target gvsoc_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 31%] Built target gvsoc
+[ 35%] Built target gvsoc_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_memory_memory_cpp_149327240_optim
+Consolidate compiler generated dependencies of target gen_memory_memory_cpp_149327240_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_interco_router_common_cpp_121245830_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 36%] Building CXX object core/CMakeFiles/gen_global_mem_cpp_137737631_optim.dir/__/docs/developer/cese4130-lab4/Part2/global_mem.cpp.o
+[ 37%] Building CXX object core/CMakeFiles/gen_global_mem_cpp_137737631_debug.dir/__/docs/developer/cese4130-lab4/Part2/global_mem.cpp.o
+[ 38%] Building CXX object core/CMakeFiles/gen_memory_memory_cpp_149327240_optim.dir/models/memory/memory.cpp.o
+[ 39%] Building CXX object core/CMakeFiles/gen_memory_memory_cpp_149327240_debug.dir/models/memory/memory.cpp.o
+[ 39%] Building CXX object core/CMakeFiles/gen_interco_router_common_cpp_121245830_optim.dir/models/interco/router_common.cpp.o
+Consolidate compiler generated dependencies of target gen_isa_rv64imafdc_cpp_56505881_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 39%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/isa_rv64imafdc.cpp.o
+[ 40%] Building CXX object core/CMakeFiles/gen_interco_router_common_cpp_121245830_optim.dir/models/interco/router.cpp.o
+[ 40%] Linking CXX shared module gen_global_mem_cpp_137737631_optim.so
+[ 40%] Linking CXX shared module gen_global_mem_cpp_137737631_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 40%] Built target gen_global_mem_cpp_137737631_optim
+[ 41%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/__/pulp/pulp/cpu/iss/default_iss_wrapper.cpp.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 41%] Built target gen_global_mem_cpp_137737631_debug
+[ 41%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/prefetch/prefetch_single_line.cpp.o
+[ 41%] Linking CXX shared module gen_memory_memory_cpp_149327240_optim.so
+[ 41%] Linking CXX shared module gen_memory_memory_cpp_149327240_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 41%] Built target gen_memory_memory_cpp_149327240_optim
+[ 41%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/csr.cpp.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 41%] Built target gen_memory_memory_cpp_149327240_debug
+[ 42%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/exec/exec_inorder.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_isa_rv64imafdc_cpp_56505881_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 42%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/isa_rv64imafdc.cpp.o
+[ 42%] Linking CXX shared module gen_interco_router_common_cpp_121245830_optim.so
+[ 43%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/__/pulp/pulp/cpu/iss/default_iss_wrapper.cpp.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 43%] Built target gen_interco_router_common_cpp_121245830_optim
+[ 43%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/prefetch/prefetch_single_line.cpp.o
+[ 44%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/csr.cpp.o
+[ 44%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/exec/exec_inorder.cpp.o
+[ 44%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/decode.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsocdpi
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 45%] Built target gvsocdpi
+[ 46%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/lsu.cpp.o
+[ 46%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/timing.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc_launcher
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 47%] Built target gvsoc_launcher
+[ 48%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/insn_cache.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gvsoc_launcher_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 49%] Built target gvsoc_launcher_debug
+[ 49%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/iss.cpp.o
+[ 50%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/decode.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target cpu.emulation.emulation_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 51%] Building CXX object core/models/cpu/emulation/CMakeFiles/cpu.emulation.emulation_optim.dir/emulation.cpp.o
+[ 52%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/core.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target cpu.emulation.emulation_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 52%] Building CXX object core/models/cpu/emulation/CMakeFiles/cpu.emulation.emulation_debug.dir/emulation.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target i2c_helper_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 52%] Building CXX object core/models/devices/i2c/helper/CMakeFiles/i2c_helper_optim.dir/i2c_helper.cpp.o
+[ 52%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/lsu.cpp.o
+[ 52%] Linking CXX shared module cpu.emulation.emulation_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 52%] Built target cpu.emulation.emulation_optim
+[ 53%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/timing.cpp.o
+[ 53%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/exception.cpp.o
+[ 53%] Linking CXX shared module cpu.emulation.emulation_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 53%] Built target cpu.emulation.emulation_debug
+[ 54%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/regfile.cpp.o
+[ 55%] Linking CXX static library i2c_helper_optim.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 55%] Built target i2c_helper_optim
+[ 55%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/resource.cpp.o
+[ 55%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/insn_cache.cpp.o
+[ 56%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/iss.cpp.o
+[ 57%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/trace.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target i2c_helper_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 57%] Building CXX object core/models/devices/i2c/helper/CMakeFiles/i2c_helper_debug.dir/i2c_helper.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target io_audio_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 57%] Building CXX object core/models/devices/sound/utils/io_audio_file/CMakeFiles/io_audio_optim.dir/io_audio.cpp.o
+[ 57%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/core.cpp.o
+[ 57%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/syscalls.cpp.o
+[ 58%] Linking CXX static library i2c_helper_debug.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 58%] Built target i2c_helper_debug
+[ 59%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/exception.cpp.o
+[ 60%] Linking CXX static library io_audio_optim.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 60%] Built target io_audio_optim
+[ 60%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/regfile.cpp.o
+[ 61%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/resource.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target io_audio_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 61%] Building CXX object core/models/devices/sound/utils/io_audio_file/CMakeFiles/io_audio_debug.dir/io_audio.cpp.o
+[ 61%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/htif.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target pcm_pdm_conversion_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 62%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_optim.dir/sigma_delta.cpp.o
+[ 63%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/memcheck.cpp.o
+[ 63%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_optim.dir/sigma_delta_arithmetics.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 64%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_optim.dir/linear_interpolator.cpp.o
+Consolidate compiler generated dependencies of target pcm_pdm_conversion_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 64%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_debug.dir/sigma_delta.cpp.o
+[ 64%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_optim.dir/iir_interpolator.cpp.o
+[ 64%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_debug.dir/sigma_delta_arithmetics.cpp.o
+[ 65%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_debug.dir/linear_interpolator.cpp.o
+[ 66%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_optim.dir/pcm_pdm_conversion.cpp.o
+[ 66%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_debug.dir/iir_interpolator.cpp.o
+[ 66%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/trace.cpp.o
+[ 67%] Linking CXX static library io_audio_debug.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 67%] Built target io_audio_debug
+[ 68%] Building CXX object core/models/devices/sound/utils/pcm_pdm_conversion/CMakeFiles/pcm_pdm_conversion_debug.dir/pcm_pdm_conversion.cpp.o
+[ 68%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/mmu.cpp.o
+[ 68%] Linking CXX static library pcm_pdm_conversion_optim.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 68%] Built target pcm_pdm_conversion_optim
+[ 68%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/syscalls.cpp.o
+[ 68%] Linking CXX static library pcm_pdm_conversion_debug.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 68%] Built target pcm_pdm_conversion_debug
+[ 69%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/pmp.cpp.o
+[ 70%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/htif.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.microphone.i2s.i2s_microphone_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 71%] Building CXX object core/models/devices/sound/microphone/i2s/CMakeFiles/devices.sound.microphone.i2s.i2s_microphone_optim.dir/i2s_microphone.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.microphone.i2s.i2s_microphone_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 72%] Building CXX object core/models/devices/sound/microphone/i2s/CMakeFiles/devices.sound.microphone.i2s.i2s_microphone_debug.dir/i2s_microphone.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.testbench.testbench_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 72%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/gdbserver.cpp.o
+[ 72%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_optim.dir/i2s_verif.cpp.o
+Consolidate compiler generated dependencies of target devices.testbench.testbench_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 73%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_debug.dir/i2s_verif.cpp.o
+[ 73%] Linking CXX shared module devices.sound.microphone.i2s.i2s_microphone_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 73%] Built target devices.sound.microphone.i2s.i2s_microphone_optim
+[ 74%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/dbg_unit.cpp.o
+[ 74%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/memcheck.cpp.o
+[ 74%] Linking CXX shared module devices.sound.microphone.i2s.i2s_microphone_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 74%] Built target devices.sound.microphone.i2s.i2s_microphone_debug
+[ 75%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_optim.dir/spim_verif.cpp.o
+[ 75%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_debug.dir/spim_verif.cpp.o
+[ 75%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_debug.dir/testbench.cpp.o
+[ 76%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/mmu.cpp.o
+[ 76%] Building C object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/flexfloat/flexfloat.c.o
+[ 77%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_optim.dir/models/cpu/iss/src/irq/irq_riscv.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 78%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_optim.dir/gdbserver.cpp.o
+[ 78%] Building CXX object core/models/devices/testbench/CMakeFiles/devices.testbench.testbench_optim.dir/testbench.cpp.o
+[ 78%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_optim.dir/rsp.cpp.o
+[ 78%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/pmp.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 78%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_debug.dir/gdbserver.cpp.o
+[ 78%] Linking CXX shared module gen_isa_rv64imafdc_cpp_56505881_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 78%] Built target gen_isa_rv64imafdc_cpp_56505881_optim
+[ 79%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/gdbserver.cpp.o
+[ 79%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_optim.dir/rsp-packet-codec.cpp.o
+[ 80%] Linking CXX shared module devices.testbench.testbench_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 80%] Built target devices.testbench.testbench_debug
+[ 81%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_debug.dir/rsp.cpp.o
+[ 82%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_optim.dir/circular-buffer.cpp.o
+[ 82%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/dbg_unit.cpp.o
+[ 82%] Linking CXX shared module gdbserver.gdbserver_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 82%] Built target gdbserver.gdbserver_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target mem_plug_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 82%] Building CXX object core/models/interco/mem_plug/CMakeFiles/mem_plug_optim.dir/implem/mem_plug.cpp.o
+[ 82%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_debug.dir/rsp-packet-codec.cpp.o
+[ 83%] Linking CXX shared module devices.testbench.testbench_optim.so
+[ 84%] Building C object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/flexfloat/flexfloat.c.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 84%] Built target devices.testbench.testbench_optim
+[ 85%] Building CXX object core/models/gdbserver/CMakeFiles/gdbserver.gdbserver_debug.dir/circular-buffer.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target mem_plug_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 85%] Building CXX object core/models/interco/mem_plug/CMakeFiles/mem_plug_debug.dir/implem/mem_plug.cpp.o
+[ 85%] Building CXX object core/CMakeFiles/gen_isa_rv64imafdc_cpp_56505881_debug.dir/models/cpu/iss/src/irq/irq_riscv.cpp.o
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.composite_impl_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 85%] Building CXX object core/models/utils/CMakeFiles/utils.composite_impl_optim.dir/composite_impl.cpp.o
+[ 85%] Linking CXX shared module gdbserver.gdbserver_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 85%] Built target gdbserver.gdbserver_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.composite_impl_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 86%] Building CXX object core/models/utils/CMakeFiles/utils.composite_impl_debug.dir/composite_impl.cpp.o
+[ 87%] Linking CXX static library mem_plug_optim.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 87%] Built target mem_plug_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.dpi_chip_wrapper_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.dpi_chip_wrapper_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 87%] Building CXX object core/models/utils/CMakeFiles/utils.dpi_chip_wrapper_optim.dir/dpi_chip_wrapper.cpp.o
+[ 87%] Building CXX object core/models/utils/CMakeFiles/utils.dpi_chip_wrapper_debug.dir/dpi_chip_wrapper.cpp.o
+[ 88%] Linking CXX shared module utils.composite_impl_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 88%] Built target utils.composite_impl_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.loader.loader_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 88%] Building CXX object core/models/utils/loader/CMakeFiles/utils.loader.loader_optim.dir/loader.cpp.o
+[ 89%] Linking CXX static library mem_plug_debug.a
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 89%] Built target mem_plug_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target utils.loader.loader_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 89%] Linking CXX shared module utils.composite_impl_debug.so
+[ 89%] Building CXX object core/models/utils/loader/CMakeFiles/utils.loader.loader_debug.dir/loader.cpp.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 89%] Built target utils.composite_impl_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target vp.clock_engine_module_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 89%] Building CXX object core/models/vp/CMakeFiles/vp.clock_engine_module_optim.dir/clock_engine_module.cpp.o
+[ 90%] Linking CXX shared module gen_isa_rv64imafdc_cpp_56505881_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 90%] Built target gen_isa_rv64imafdc_cpp_56505881_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target vp.clock_engine_module_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 90%] Building CXX object core/models/vp/CMakeFiles/vp.clock_engine_module_debug.dir/clock_engine_module.cpp.o
+[ 91%] Linking CXX shared module vp.clock_engine_module_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 91%] Built target vp.clock_engine_module_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target gen_interco_router_common_cpp_121245830_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 92%] Building CXX object core/CMakeFiles/gen_interco_router_common_cpp_121245830_debug.dir/models/interco/router_common.cpp.o
+[ 93%] Linking CXX shared module utils.loader.loader_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 93%] Built target utils.loader.loader_optim
+[ 93%] Building CXX object core/CMakeFiles/gen_interco_router_common_cpp_121245830_debug.dir/models/interco/router.cpp.o
+[ 94%] Linking CXX shared module utils.loader.loader_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 94%] Built target utils.loader.loader_debug
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.transfer_function_optim
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 95%] Building CXX object core/models/devices/sound/CMakeFiles/devices.sound.transfer_function_optim.dir/transfer_function.cpp.o
+[ 96%] Linking CXX shared module utils.dpi_chip_wrapper_optim.so
+[ 97%] Linking CXX shared module utils.dpi_chip_wrapper_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 97%] Built target utils.dpi_chip_wrapper_optim
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+Consolidate compiler generated dependencies of target devices.sound.transfer_function_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[4]: Entering directory '/home/ce-user/trial2/gvsoc/build'
+[ 98%] Building CXX object core/models/devices/sound/CMakeFiles/devices.sound.transfer_function_debug.dir/transfer_function.cpp.o
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 98%] Built target utils.dpi_chip_wrapper_debug
+[ 99%] Linking CXX shared module vp.clock_engine_module_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[ 99%] Built target vp.clock_engine_module_debug
+[100%] Linking CXX shared module gen_interco_router_common_cpp_121245830_debug.so
+[100%] Linking CXX shared module devices.sound.transfer_function_optim.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[100%] Built target gen_interco_router_common_cpp_121245830_debug
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[100%] Built target devices.sound.transfer_function_optim
+[100%] Linking CXX shared module devices.sound.transfer_function_debug.so
+gmake[4]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+[100%] Built target devices.sound.transfer_function_debug
+gmake[3]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+gmake[2]: Leaving directory '/home/ce-user/trial2/gvsoc/build'
+cd /home/ce-user/trial2/gvsoc && cmake --install build
+-- Install configuration: "RelWithDebInfo"
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin
+-- Installing: /home/ce-user/trial2/gvsoc/install/bin/gvsoc
+-- Installing: /home/ce-user/trial2/gvsoc/install/bin/gvsoc
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/cpu/emulation/emulation.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/cpu/emulation/emulation.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/i2c_helper_optim.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/i2c_helper_debug.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/devices/sound/transfer_function.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/devices/sound/transfer_function.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/pcm_pdm_conversion_optim.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/pcm_pdm_conversion_debug.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/io_audio_optim.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/io_audio_debug.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/devices/sound/microphone/i2s/i2s_microphone.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/devices/sound/microphone/i2s/i2s_microphone.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/devices/testbench/testbench.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/devices/testbench/testbench.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/gdbserver/gdbserver.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/gdbserver/gdbserver.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/mem_plug_optim.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/mem_plug_debug.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/utils/composite_impl.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/utils/composite_impl.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/utils/dpi_chip_wrapper.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/utils/dpi_chip_wrapper.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/utils/loader/loader.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/utils/loader/loader.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/vp/clock_engine_module.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/vp/clock_engine_module.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/gen_interco_router_common_cpp_121245830.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/gen_interco_router_common_cpp_121245830.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/gen_memory_memory_cpp_149327240.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/gen_memory_memory_cpp_149327240.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/gen_global_mem_cpp_137737631.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/gen_global_mem_cpp_137737631.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/gen_isa_rv64imafdc_cpp_56505881.so
+-- Installing: /home/ce-user/trial2/gvsoc/install/models/debug/gen_isa_rv64imafdc_cpp_56505881.so
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/flash.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/flash.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/rom_v2.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/pulp/default_flash_content.json
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/chips/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/target.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/littlefs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/raw.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/__init__.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/partition.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/hostfs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/fs/readfs.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapylib/utils.py
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gen-debug-info
+-- Up-to-date: /home/ce-user/trial2/gvsoc/install/bin/gapy
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments 
+../../../../install/bin/gvsoc --target-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2 --target=my_system --work-dir=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build --binary=/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test run 
+The total 3s are:56

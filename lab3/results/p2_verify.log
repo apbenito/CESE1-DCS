@@ -1,0 +1,340 @@
+python3 ./test/verify.py
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=1 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=2 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=3 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=4 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=5 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=6 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=7 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=8 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=9 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=10 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=11 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=12 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=13 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=14 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=15 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=16 -DARRAY=1
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=1 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=2 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=3 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=4 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=5 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=6 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=7 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=8 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=9 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=10 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=11 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=12 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=13 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=14 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=15 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=16 -DARRAY=2
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=1 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=2 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=3 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=4 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=5 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=6 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=7 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=8 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=9 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=10 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=11 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=12 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=13 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=14 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=15 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+make[1]: Entering directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+mkdir -p /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build
+riscv64-unknown-elf-gcc -g -o /home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2/build/test main.c ../utils/init.c ../utils/crt0.S ../utils/alloc.c ../utils/io.c ../utils/prf.c ../utils/string.c ../utils/fprintf.c -march=rv64imafdc -O0 -fno-tree-loop-distribute-patterns -I../utils -T../utils/link.ld -nostartfiles -nostdlib -Wl,--no-warn-rwx-segments -DNUM_CORES=16 -DARRAY=3
+make[1]: Leaving directory '/home/ce-user/trial2/gvsoc/docs/developer/cese4130-lab4/Part2'
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+Compiling the project...
+Running the simulation...
+Simulation completed. Output is saved in out.log.
+
+
+All tests were passed!!
